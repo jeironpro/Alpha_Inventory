@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO | REGISTRATE</title>
+    <link rel="icon" href="{% static 'AlphaInventory/icons/registro_usuario.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/registro_usuario.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/mensaje.css' %}">
+</head>
+<body>
+    <script>
+        function confirmacion() {
+            var conf =  confirm("¿Estás seguro de que tu informacion es correcta?");
+
+            if(conf == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <header>
+        <h1>Registro De Usuario</h1>
+    </header>
+    {% for mensaje in messages %}
+        <div class="mensaje_inicio">{{ mensaje }}</div>
+    {% endfor %}
+    <main>
+        <div class="contenedor_formulario">
+            <form method="POST">
+                {% csrf_token %} 
+                <div class="contenedor_nomape">
+                    <div class="campo nomape">
+                        <input type="text" name="nombre" class="nomape" autocomplete="off" required>
+                        <span class="icono_label" title="Nombre"><i class="fa-solid fa-signature"></i></span>
+                        <label for="nombre">Nombre</label>
+                    </div>
+                    <div class="campo nomape">
+                        <input type="text" name="apellido" class="nomape" autocomplete="off" required>
+                        <span class="icono_label" title="Apellido"><i class="fa-solid fa-signature"></i></span>
+                        <label for="apellido">Apellido</label>
+                    </div>
+                </div>
+                <div class="campo campo_">
+                    <input type="text" name="nombreUsuario" autocomplete="off" required>
+                    <span class="icono_label" title="Nombre Usuario"><i class="fa-solid fa-signature"></i></span>
+                    <label for="nombreUsuario">Nombre de Usuario</label>
+                </div>
+                <div class="campo campo_">
+                    <input type="text" name="direccion" autocomplete="off" required>
+                    <span class="icono_label" title="Direccion"><i class="fa-solid fa-location-dot"></i></span>
+                    <label for="direccion">Direcci&oacute;n</label>
+                </div>
+                <div class="campo campo_">
+                    <input type="tel" name="telefono" maxlength="10" autocomplete="off" required>
+                    <span class="icono_label" title="Telefono"><i class="fa-sharp fa-solid fa-phone"></i></span>
+                    <label for="telefono">Tel&eacute;fono</label>
+                </div>
+                <div class="campo campo_">
+                    <input type="email" name="correoElectronico" autocomplete="off" required>
+                    <span class="icono_label" title="Correo Electronico"><i class="fa-regular fa-envelope"></i></span>
+                    <label for="correoElectronico">Correo Electr&oacute;nico</label>
+                </div>
+                <div class="campo campo_">
+                    <input type="password" name="contrasena" class="input_password" minlength="8" autocomplete="off" required>
+                    <span class="icono_label" title="Contraseña"><i class="fa-solid fa-key"></i></span>
+                    <span class="moscontra" title="Contraseña Oculta"><i class="fa-regular fa-eye-slash mostrar"></i></span>
+                    <label for="contrasena">Contraseña</label>
+                </div>
+                <div class="campo arriba campo_">
+                    <input type="password" name="contrasena-" class="input_password-" minlength="8" autocomplete="off" required>
+                    <span class="icono_label" title="Contraseña"><i class="fa-solid fa-key"></i></span>
+                    <span class="moscontra" title="Contraseña Oculta"><i class="fa-regular fa-eye-slash mostrar-"></i></span>
+                    <label for="contrasena-">Confirmar Contraseña</label>
+                </div>
+                <div class="botones">
+                    <a href="/" class="boton">Atr&aacute;s</a>
+                    <button type="submit" class="boton" onclick="return confirmacion()">Siguiente</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{% static 'AlphaInventory/js/mostrarContrasena.js' %}"></script>
+</body>
+</html>

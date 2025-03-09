@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATE</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/panelControl.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <figure>
+                <img src="{{ url_for('static', filename='icons/logo.png') }}" alt="Logo" class="logo_inicio">
+            </figure>
+            <h1>Inventory</h1>
+        </div>
+    </header>
+    <main>
+        <h3 class="subtitulo">Registro De Usuario</h3>
+        <div class="contenedor_formulario formulario_registro_usuario">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for mensaje in messages %}
+                    <div class="contenedor_notificacion contenedor_notificacion_index">
+                        <div class="cuerpo_notificacion">
+                            <div class="descripcion_notificacion">  
+                                <div class="icono_notificacion">
+                                    <i class="fa-solid fa-info"></i>
+                                </div>                  
+                                {{ mensaje }} 
+                            </div> 
+                            <button class="boton_notificacion">
+                                <i class="fa-solid fa-close"></i>
+                            </button>
+                        </div>
+                        <div class="barra_notificacion"></div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="{{ url_for('registro_usuario_bd') }}" method="POST" enctype="multipart/form-data"> 
+                <div class="campo">
+                    <input type="text" id="nombre" name="nombre" autocomplete="off" placeholder="Nombre" required>
+                    <span class="icono_label" title="Nombre"><i class="fa-solid fa-signature"></i></span>
+                </div>
+                <div class="campo">
+                    <input type="text" id="apellido" name="apellido" autocomplete="off" placeholder="Apellido" required>
+                    <span class="icono_label" title="Apellido"><i class="fa-solid fa-signature"></i></span>
+                </div>
+                <div class="campo">
+                    <input type="text" id="direccion" name="direccion" autocomplete="off" placeholder="Direcci&oacute;n" required>
+                    <span class="icono_label" title="Direccion"><i class="fa-solid fa-location-dot"></i></span>
+                </div>
+                <div class="campo">
+                    <input type="tel" id="telefono" name="telefono" maxlength="10" autocomplete="off" placeholder="Tel&eacute;fono" required>
+                    <span class="icono_label" title="Telefono"><i class="fa-sharp fa-solid fa-phone"></i></span>
+                </div>
+                <div class="campo">
+                    <input type="email" id="correo_electronico" name="correo_electronico" autocomplete="off" placeholder="Correo Electr&oacute;nico" required>
+                    <span class="icono_label" title="Correo Electronico"><i class="fa-regular fa-envelope"></i></span>
+                </div>
+                <div class="campo">
+                    <input type="password" id="contrasena" name="contrasena" minlength="8" autocomplete="off" placeholder="Contraseña" required>
+                    <span class="icono_label" title="Contraseña"><i class="fa-solid fa-key"></i></span>
+                    <span class="moscontra" title="Contraseña Oculta"><i class="fa-regular fa-eye-slash mostrar" data-target="contrasena"></i></span>
+                </div>
+                <div class="campo">
+                    <input type="password" id="contrasena_" name="contrasena_" minlength="8" autocomplete="off" placeholder="Confirmar Contraseña" required>
+                    <span class="icono_label" title="Contraseña"><i class="fa-solid fa-key"></i></span>
+                    <span class="moscontra" title="Contraseña Oculta"><i class="fa-regular fa-eye-slash mostrar" data-target="contrasena_"></i></span>
+                </div>
+                <div class="botones">
+                    <a href="/" class="boton">Atr&aacute;s</a>
+                    <button type="submit" class="boton" onclick="return confirmacion_registro_usuario()">Siguiente</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/mostrar_contrasena.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/mensajes.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/confirmaciones.js') }}"></script>
+</body>
+</html>

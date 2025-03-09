@@ -1,0 +1,412 @@
+aside {
+    bottom: 0;
+    left: 20%;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 5%;
+}
+
+aside h2 {
+    background-color: #009BEF;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    width: 97%;
+}
+
+.formulario {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.contenedor_formulario {
+    left: 10px;
+    margin: 2px;
+    position: relative;
+    top: 10px;
+}
+
+.contenedor_formulario label {
+    font-weight: 700;
+}
+
+.contenedor_formulario input {
+    font-weight: 400;
+}
+
+.icono {
+    margin-left: 7px;
+    position: relative;
+    top: 4px;
+    width: 20px;
+}
+
+.tabla {
+    background-color: #ADD8E6;
+    border-collapse: collapse;
+    height: auto;
+    margin-top: 20px;
+    width: 97%;
+}
+
+.tabla tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabla th {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    padding: 7px;
+    text-align: center;
+}
+
+.tabla td {
+    border-right: 1px solid;
+    cursor: pointer;
+    padding: 7px;
+    text-align: center;
+}
+
+.tabla td input {
+    background-color: #ADD8E6;
+    border: none;
+    color: #000;
+    font-size: 15px;
+    height: 20px;
+    text-align: center;
+    width: 80px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+.tabla td .nth {
+    background-color: #f2f2f2;
+}
+
+.tabla td input::placeholder {
+    color: #000;
+}
+
+.boton {
+    background-color: #189BEF;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 42%;
+    margin-top: 10px;
+    padding: 7px 30px;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 1224px) {
+    aside {
+        left: 22%;
+        position: fixed;
+    }
+
+    aside h2 {
+        margin-right: 10px;
+        padding: 7px;
+        width: 94%;
+    }
+
+    .formulario {
+        left: 5px;
+        position: relative;
+    }
+
+    .contenedor_formulario {
+        margin-left: 10px;
+    }
+
+    .formulario label {
+        font-size: 17px;
+    }
+
+    .formulario input {
+        height: 22px;
+        width: 130px;
+    }
+
+    form .tabla {
+        margin-right: 10px;
+        margin-top: 30px;
+        width: 94%;
+    }
+
+    .tabla th {
+        font-size: 14px;
+    }
+
+    .tabla td {
+        font-size: 14px;
+    }
+
+    .boton {
+        font-size: 17px;
+        margin-left: 38.5%;
+    }
+}
+
+@media screen and (max-width: 1124px) {
+    aside h2 {
+        font-size: 24px;
+        width: 95%;
+    }
+
+    form .tabla {
+        margin-right: 30%;
+        margin-top: 30px;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    aside h2 {
+        margin-left: 10px;
+    }
+
+    form .tabla {
+        margin-left: 10px;
+    }
+
+    .boton {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 924px) {
+    aside {
+        left: 24%;
+    }
+
+    aside h2 {
+        font-size: 22px;
+        margin-left: 20px;
+        padding: 8px;
+        width: 93%;
+    }
+
+    .formulario {
+        left: 14px;
+    }
+
+    .formulario label {
+        font-size: 13px;
+    }
+
+    .formulario input {
+        height: 18px;
+        width: 110px;
+    }
+
+    form .tabla {
+        width: 93%;
+    }
+
+    .tabla th {
+        font-size: 14px;
+    }
+
+    .tabla td {
+        font-size: 14px;
+    }
+
+    .boton {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    aside {
+        left: -4%;
+    }
+
+    aside h2 {
+        font-size: 20px;
+        padding: 9px;
+        width: 100%;
+    }
+
+    .contenedor_formulario {
+        margin-left: 40px;
+    }
+
+    form .tabla {
+        left: 4%;
+        position: relative;
+        width: 90%;
+    }
+
+    .tabla th {
+        font-size: 13px;
+    }
+
+    .tabla td {
+        font-size: 13px;
+    }
+
+    .boton {
+        font-size: 14px;
+        margin-left: 43%;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 724px) {
+    aside h2 {
+        padding: 10px;
+    }
+
+    .formulario label {
+        font-size: 14px;
+    }
+
+    .formulario input {
+        height: 18px;
+        width: 110px;
+    }
+
+    form .tabla {
+        margin-left: 10px;
+    }
+
+    .tabla th {
+        font-size: 11px;
+    }
+
+    .tabla td {
+        font-size: 11px;
+    }
+
+    .boton {
+        font-size: 13px;
+        padding: 7px 26px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .tabla th {
+        font-size: 11px;
+    }
+
+    .tabla td {
+        font-size: 11px;
+    }
+
+    .formulario .tabla td input {
+        width: 70px;
+    }
+
+    .formulario .tabla td select {
+        width: 70px;
+    }
+
+    .boton {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    .formulario label {
+        font-size: 12px;
+    }
+
+    .formulario input {
+        height: 16px;
+        width: 100px;
+    }
+
+    .icono {
+        height: 18px;
+        width: 18px;
+    }
+    
+    form .tabla {
+        margin-left: 0.5%;
+        width: 90%;
+    }
+
+    .tabla th {
+        font-size: 10px;
+    }
+
+    .tabla td {
+        font-size: 10px;
+    }
+
+    .boton {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    aside {
+        left: -5%;
+    }
+
+    .contenedor_formulario {
+        margin-left: 20px;
+    }
+
+    .formulario label {
+        font-size: 12px;
+    }
+
+    .formulario .contenedor_formulario input {
+        align-content: center;
+        background-color: #fff;
+        border: 1px #000 solid;
+        height: 15px;
+        font-size: 9px;
+        margin-bottom: 10px;
+        width: 100px;
+    }
+
+    .up {
+        left: 56px;
+        position: absolute;
+        top: 5px;
+    }
+
+    .icono {
+        height: 15px;
+        width: 15px;
+    }
+        
+    .tabla th {
+        align-items: center;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .tabla td {
+        font-size: 9px;
+    }
+    
+    .boton {
+        margin-left: 40%;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    .formulario .contenedor_formulario label {
+        font-size: 11px;
+    }
+
+    .boton {
+        margin-left: 36%;
+    }
+}    

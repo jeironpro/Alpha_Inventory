@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONFIGURACIONES | CAMBIAR CONTRASEÑA</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/panelControl.png') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/inicio.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modales.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
+</head>
+<body>
+    <header id="contenedor_menu">
+        <!-- SE GENERA DINAMICAMENTE DESDE JS -->
+    </header>
+	<main> 
+        <h2>Actualiza Tu Contraseña</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for mensaje in messages %}
+                <div id="contenedor_notificacion" class="contenedor_notificacion contenedor_notificacion_inventario">
+                    <div class="cuerpo_notificacion">
+                        <div class="descripcion_notificacion">  
+                            <div class="icono_notificacion">
+                                <i class="fa-solid fa-info"></i>
+                            </div>           
+                            {{ mensaje }} 
+                        </div> 
+                        <button id="boton_notificacion" class="boton_notificacion">
+                            <i class="fa-solid fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="barra_notificacion"></div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="contenedor_formulario">
+            <form action="{{ url_for('cambiar_contrasena_bd') }}" method="post" enctype="multipart/form-data">
+                {% for usuario in usuario %}
+                <input type="hidden" value="{{ usuario[0] }}" name="id_registro" id="id_registro">
+                {% endfor %}
+                <div class="indicaciones_cta">
+                    <p>-La contraseña debe contener 8 caracteres m&aacute;ximo.</p>
+                    <p>-Debe incluir un signo especial y una letra may&uacute;scula.</p>
+                    <p>-La contraseña no debe ser la misma que el usuario.</p>
+                </div>
+                {% if login_google %}
+                {% else %}
+                <div class="campo">
+                    <input type="password" id="contrasena_antigua" name="contrasena_antigua" minlength="8" placeholder="Antigua Contraseña" autocomplete="off" required>
+                    <span class="icono_contrasena" title="Contraseña"><i class="fa-solid fa-lock"></i></span>
+                    <span class="moscontra" title="Contraseña Oculta"><i class="fa-regular fa-eye-slash mostrar" data-target="contrasena_antigua"></i></span>
+                </div>
+                {% endif %}
+                <div class="campo">
+                    <input type="password" id="contrasena" name="contrasena" minlength="8" placeholder="Nueva Contraseña" autocomplete="off" required>
+                    <span class="icono_contrasena" title="Contraseña"><i class="fa-solid fa-lock"></i></span>
+                    <span class="moscontra" title="Contraseña Oculta"><i class="fa-regular fa-eye-slash mostrar" data-target="contrasena"></i></span>
+                </div>
+                <div class="campo">
+                    <input type="password" id="contrasena_" name="contrasena_" minlength="8" placeholder="Confirmar Contraseña" autocomplete="off" required>
+                    <span class="icono_contrasena" title="Contraseña"><i class="fa-solid fa-lock"></i></span>
+                    <span class="moscontra" title="Contraseña Oculta"><i class="fa-regular fa-eye-slash mostrar" data-target="contrasena_"></i></span>
+                </div>
+                <div class="botones">
+                    <button type="submit" class="boton" onclick="return confirmacion_cambiar_contrasena()">Guardar</button>
+                </div>
+            </form>
+        </div>
+	</main>
+    <div id="contenedor_modal"></div>
+    <div id="background_modal" class="background_modal"></div>
+	<script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modales.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/mostrar_contrasena.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/mensajes.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/confirmaciones.js') }}"></script>
+</body>
+</html>

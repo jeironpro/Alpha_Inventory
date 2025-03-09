@@ -1,0 +1,171 @@
+main {
+    height: 100%;
+    width: 100%;
+}
+
+main h2 {
+    background-color: #009BEF;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.contenedor_principal {
+    height: 100%;
+}
+
+.contenedor_datos {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor_datos h3 {
+    margin-left: 10px;
+}
+
+.datos {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+}
+
+.datos .campo {
+    font-weight: 700;
+}
+
+.datos .campo input {
+    border: 1px solid #009BEF;
+    border-radius: 5px;
+    padding: 6px;
+    width: 200px;
+}
+
+.datos .enlace_buscador_articulo {
+    background-color: #189BEF;
+    border: none;
+    border-radius: 5px;
+    color: #FFF;
+    padding: 10px;
+    width: 200px;
+}
+
+.datos .buscador {
+    position: relative;
+}
+
+.datos .buscador .enlace_buscador {
+    color: #009BEF;
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+}
+
+.datos .buscador_articulo .enlace_buscador_articulo {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.contenedor_tabla {
+    height: 100%;
+    position: relative;
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    width: 100%;
+}
+
+thead, tfoot {
+    background-color: #005b9b;
+    color: #FFF;
+}
+
+thead th, tfoot td {
+    font-weight: 600;
+    padding: 10px;
+    text-align: center;
+}
+
+tbody tr:hover {
+    background-color: #DDD;
+}
+
+tbody td {
+    border-right: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+}
+
+tbody td:last-child {
+    border-right: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+table td input, table td select {
+    background-color: #009BEF;
+    border: none;
+    border-radius: 5px;
+    color: #FFF;
+    font-size: 16px;
+    height: 24px;
+    text-align: center;
+    width: 140px;
+}
+
+table td input::placeholder {
+    color: #FFF;
+}
+
+.controles_paginacion {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.controles_paginacion button {
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+    width: 25px;
+}
+
+.controles_paginacion button:enabled:hover {
+    background-color: #009BEF;
+    color: #FFF;
+}
+
+.botones {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.boton {
+    background-color: #189BEF;
+    border: none;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 10px;
+    height: 40px;
+    text-transform: uppercase;
+    width: 180px;
+}

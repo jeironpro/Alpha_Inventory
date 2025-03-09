@@ -1,0 +1,303 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #EAEBEF;
+    width: 100%;
+}
+
+header {
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    background-color: #009BEF;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin: auto;
+    padding: 20px 0 0 0px;
+}
+
+.indicaciones_cta {
+    margin: auto;
+    padding: 8px 0;
+    text-align: justify;
+}
+
+.indicaciones_cta p {
+    align-items: center;
+    color: #000;
+    display: flex;
+    font-size: 16px;
+    font-weight: 700;
+    justify-content: center;
+    margin: 5px 0;
+    padding: 3px 0;
+    text-align: justify;
+    width: 100%;
+}
+
+.campo {
+    margin-top: 40px;
+    position: relative;
+}
+
+input {
+    border: 2px solid #ADD8E6;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #000;
+    display: flex;
+    flex-flow: column;
+    font-size: 14px;
+    font-weight: 500;
+    height: 42px;
+    justify-content: left;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 380px;
+}
+
+label {
+    font-size: 17px;
+    font-weight: 700;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translate(38px, 8px);
+    transform-origin: center;
+    transition: transform 0.25s;
+}
+
+input:focus-visible~.password,
+input:valid~.password,
+input:focus-visible~.password-,
+input:valid~.password- {
+    color: #000;
+    font-size: 20px;
+    margin-top: -10px;
+    transform: translate(-0px, -20px) scale(0.8);
+}
+
+input:is(:focus-visible, :valid) {
+    outline-color: #000;
+}
+
+.icono_label {
+    cursor: pointer;
+    font-size: 15px;
+    left: 16px;
+    position: relative;
+    top: -43px;
+}
+
+.fa-key {
+    color: #e5be01;
+}
+
+.moscontra {
+    position: absolute;
+    right: 5%;
+    top: 14%;
+}
+
+.botones {
+    display: flex;
+    flex-flow: row;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.boton {
+    color: #000;
+    cursor: pointer;
+    background-color: #009BEF;
+    border: 1px solid #FFF;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 120px;
+}
+
+.boton:hover {
+    background-color: #0029FF;
+    border: 1px solid #000;
+    color: #FFF;
+    transition: all 1s ease-out;
+    width: 120px;
+}
+
+@media screen and (max-width: 1024px) {
+    h1 {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .campo {
+        margin-top: 30px;
+    }
+
+    input {
+        font-size: 14px;
+        height: 44px;
+        margin: 10px;
+        padding: 10px;
+        width: 400px;
+    }
+
+    label {
+        font-size: 18px;
+        transform: translate(38px, 10px);
+    }
+
+    input:focus-visible~.password,
+    input:valid~.password,
+    input:focus-visible~.password-,
+    input:valid~.password- {
+        font-size: 20px;
+        transform: translate(-0px, -20px) scale(0.8);
+    }
+
+    .icono_label {
+        font-size: 15px;
+        left: 15px;
+        top: -43px;
+    }
+
+    .botones {
+        margin-top: 40px;
+    }
+
+    .boton {
+        font-size: 18px;
+        padding: 8px;
+        width: 120px;
+    }
+
+    .boton:hover {
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    h1 {
+        font-size: 19px;
+        padding: 13px;
+    }
+
+   .indicaciones_cta p {
+       font-size: 15px;
+   }
+
+   .campo {
+    margin-top: 50px;
+   }
+
+   input {
+    height: 40px;
+    width: 340px;
+   }
+
+   label {
+       font-size: 15px;
+       transform: translate(38px, 10px);
+   }
+
+   input:focus-visible~.password,
+   input:valid~.password,
+   input:focus-visible~.password-,
+   input:valid~.password- {
+       font-size: 19px;
+       transform: translate(-5px, -20px) scale(0.8);
+   }
+
+    .icono_label {
+        font-size: 14px;
+        left: 18px;
+        top: -42px;
+    }
+
+    .botones {
+        margin-top: 30px;
+    }
+
+    .boton {
+        font-size: 16px;
+        height: 38px;
+        width: 110px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body, header, main {
+        overflow: hidden;
+    }
+
+    header {
+        padding: 30px 0;
+    }
+
+    h1 {
+        padding: 10px;
+    }
+
+    .indicaciones_cta p {
+        font-size: 13px;
+    }
+
+    label {
+        font-size: 14px;
+        transform: translate(38px, 8px);
+    }
+
+    input:focus-visible~.password,
+    input:valid~.password,
+    input:focus-visible~.password-,
+    input:valid~.password- {
+        font-size: 18px;
+        transform: translate(-5px, -20px) scale(0.8);
+    }
+
+    input {
+        height: 34px;
+        width: 300px;
+    }
+
+    .icono_label {
+        font-size: 13px;
+        left: 20px;
+        top: -38px;
+    }
+
+    .moscontra {
+        font-size: 15px;
+    }
+
+    .botones {
+        margin-top: 60px;
+    }
+}

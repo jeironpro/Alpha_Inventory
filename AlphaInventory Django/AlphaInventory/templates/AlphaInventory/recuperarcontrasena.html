@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO | RECUPERAR TU CONTRASEÑA</title>
+    <link rel="icon" href="{% static 'AlphaInventory/icons/recuperar_contrasena.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/recuperar_contrasena.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/mensaje.css' %}">
+</head>
+<body>
+    <script>
+        function confirmacion() {
+            var conf =  confirm("¿Estás seguro de que quieres actualizar la contraseña?");
+
+            if(conf == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <header>
+        <h1>Recuperar Tu Contraseña</h1>
+    </header>
+    <main>
+        <div class="indicaciones_cta">
+            <p>-La contraseña debe contener 8 caracteres minimo.</p>
+            <p>-Debe incluir un signo especial y una letra may&uacute;scula.</p>
+            <p>-La contraseña no debe ser la misma que el usuario.</p>
+        </div>
+        <div class="contenedor_formulario">
+            <form method="POST" class="formulario">
+                {% csrf_token %}
+                {{ recuperar_contrasena_form }}
+                <div class="botones">
+                    <a href="/" class="boton">Atr&aacute;s</a>
+                    <button type="submit" class="boton" onclick="return confirmacion()">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{% static 'AlphaInventory/js/mostrarContrasena.js' %}"></script>
+</body>
+</html>

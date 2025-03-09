@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EDITAR SUPLIDOR</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/panelControl.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registros.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modales.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
+</head>
+<body>
+    <header id="contenedor_menu">
+        <!-- SE GENERA DINAMICAMENTE DESDE JS -->
+    </header>
+    <main>
+        <h2>Editar Suplidor</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for mensaje in messages %}
+                <div id="contenedor_notificacion" class="contenedor_notificacion contenedor_notificacion_inventario">
+                    <div class="cuerpo_notificacion">
+                        <div class="descripcion_notificacion">  
+                            <div class="icono_notificacion">
+                                <i class="fa-solid fa-info"></i>
+                            </div>           
+                            {{ mensaje }} 
+                        </div> 
+                        <button id="boton_notificacion" class="boton_notificacion">
+                            <i class="fa-solid fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="barra_notificacion"></div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="contenedor_formulario">
+            {% for suplidor in suplidor %}
+            <form action="/editarsuplidor/{{ suplidor[0] }}" method="post" enctype="multipart/form-data" class="formulario_registro">
+                <div class="contenedor_campos">
+                    <div class="campo">
+                        <label for="codigo">C&oacute;digo</label>
+                        <input type="text" id="codigo" name="codigo" value="{{ suplidor[1] }}" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="telefono">Tel&eacute;fono</label>
+                        <input type="tel" id="telefono" name="telefono" value="{{ suplidor[5] }}" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="limite_credito">L&iacute;mite de Cr&eacute;dito</label>
+                        <input type="text" id="limite_credito" name="limite_credito" value="{{ suplidor[6] }}" autocomplete="off">
+                    </div>
+                </div>
+                <div class="contenedor_campos">
+                    <div class="campo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" value="{{ suplidor[2] }}" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="rnc">RNC</label>
+                        <input type="text" id="rnc" name="rnc" value="{{ suplidor[8] }}" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="condiciones">Condiciones</label>
+                        <input type="text" id="condiciones" name="condiciones" value="{{ suplidor[7] }}" autocomplete="off">
+                    </div>
+                </div>
+                <div class="contenedor_campos">
+                    <div class="campo">
+                        <label for="direccion">Direcci&oacute;n</label>
+                        <input type="text" id="direccion" name="direccion" value="{{ suplidor[3] }}" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" name="ciudad" value="{{ suplidor[4] }}" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="descuento">Descuento</label>
+                        <input type="text" id="descuento" name="descuento" value="{{ suplidor[9] }}" autocomplete="off">
+                    </div>
+                </div>
+                <div class="botones">
+                    <a href="/listadodesuplidores" class="boton enlace">Atr&aacute;s</a>
+                    <button type="submit" class="boton" value="Grabar" onclick="return confirmacion_editar_suplidor()">Guardar</button>
+                </div>
+            </form>
+            {% endfor %}
+        </div>
+    </main>
+    <div id="contenedor_modal"></div>
+    <div id="background_modal" class="background_modal"></div>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modales.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/mensajes.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/confirmaciones.js') }}"></script>
+</body>
+</html>

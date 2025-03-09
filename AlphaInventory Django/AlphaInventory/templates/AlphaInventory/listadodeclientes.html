@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LISTADOS | LISTADO DE CLIENTES</title>
+    <link rel="icon" href="{% static 'AlphaInventory/icons/listado_clientes.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/listados.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/formulario_filtros.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/ventanamodal.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/mensaje.css' %}">
+</head>
+<body>
+    <script>
+        function confirmacion() {
+            var conf =  confirm("¿Estás seguro de que quieres eliminar este cliente?");
+
+            if(conf == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <div class="menu-boton">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="barra-lateral">
+        <header>
+            <div class="cerrar-boton">
+                <i class="fas fa-times"></i>
+            </div>
+            <a href="/inicio_inventario/" class="inicio">
+                <img src="{% static 'AlphaInventory/icons/logo.png' %}" class="logo" alt="Inicio">
+                <h1>Inventory</h1>
+            </a>
+            <div class="menu">
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="registros">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/registros.png' %}" alt="Registros"><span>REGISTROS</span><i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/registrodearticulos/" class="sub-elemento">ART&Iacute;CULOS</a>
+                        <a href="/registrodesuplidores/" class="sub-elemento">SUPLIDORES</a>
+                        <a href="/registrodeclientes/" class="sub-elemento">CLIENTES</a>
+                        <a href="#" class="sub-elemento" id="abrirENC">ENCARGADO DE COMPRAS</a>
+                        <a href="#" class="sub-elemento" id="abrirENV">ENCARGADO DE VENTAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="procesos">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/procesos.png' %}" alt="Procesos"><span>PROCESOS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/compras/" class="sub-elemento">COMPRAS</a>
+                        <a href="/ventas/" class="sub-elemento">VENTAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="movimientos">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/movimientos.png' %}" alt="Movimientos"><span>MOVIMIENTOS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/movimientosdiariocompras/" class="sub-elemento">DIARIOS / COMPRAS</a>
+                        <a href="/movimientosdiarioventas/" class="sub-elemento">DIARIOS / VENTAS</a>
+                        <a href="/movimientoporarticulocompras/" class="sub-elemento">ART&Iacute;CULO / COMPRAS</a>
+                        <a href="/movimientoporarticuloventas/" class="sub-elemento">ART&Iacute;CULO / VENTAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="listados">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/listados.png' %}" alt="Listados"><span>LISTADOS</span><i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/listadodearticulos/" class="sub-elemento">LISTADO DE ART&Iacute;CULOS</a>
+                        <a href="/listadodesuplidores/" class="sub-elemento">LISTADO DE SUPLIDORES</a>
+                        <a href="/listadodeclientes/" class="sub-elemento">LISTADO DE CLIENTES</a>
+                        <a href="/listadodecompras/" class="sub-elemento">LISTADO DE COMPRAS</a>
+                        <a href="/listadodeventas/" class="sub-elemento">LISTADO DE VENTAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="configuraciones">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/configuraciones.png' %}" alt="Configuraciones"><span>CONFIGURACIONES</span><i
+                        class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/perfil/" class="sub-elemento">PERFIL</a>
+                        <a href="/cambiarcontrasena/" class="sub-elemento">CAMBIAR CONTRASEÑA</a>
+                        <a href="/terminosycondiciones/" class="sub-elemento">T&Eacute;RMINOS & CONDICIONES</a>
+                        <a href="#" class="sub-elemento" id="abrirEC">ELIMINAR CUENTA</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a href="/cerrar_sesion/">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/cerrar-sesion.png' %}" alt="Cerrar-sesion"><span>CERRAR SESI&Oacute;N</span>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a href="{% url 'manualdeuso' %}">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/ayuda.png' %}"
+                        alt="Ayuda"><span>AYUDA</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <main>
+        <aside>
+            <h2>Listado De Clientes</h2>
+            <!-- FILTRO OMITIDO -->
+            <!-- <div class="formularios">
+                <form action="" method="post" enctype="multipart/form-data" class="formularios">
+                    <div class="contenedor_formulario">
+                        <label for="des-codigo">Desde El C&oacute;digo:</label>
+                        <input type="number" id="des-codigo" name="des-codigo" autocomplete="off">
+                    </div>
+                    <div class="contenedor_formulario">
+                        <label for="has-codigo">Hasta El C&oacute;digo:</label>
+                        <input type="number" id="has-codigo" name="has-codigo" autocomplete="off">
+                    </div>
+                    <button type="submit" class="filtro"><i class="fa-solid fa-filter"></i></button>
+                </form>
+                <form action="" method="post" enctype="multipart/form-data" class="formularios">
+                    <button type="submit" class="reiniciar"><i class="fa-solid fa-rotate-right"></i></button>
+                </form>
+            </div> -->
+            <div class="contentedor_tabla">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">C&oacute;digo</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Direcci&oacute;n</th>
+                            <th scope="col">RNC</th>
+                            <th scope="col">Tel&eacute;fono</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Descuento</th>
+                            <th scope="col">Gesti&oacute;n</th>
+                        </tr>
+                    </thead>
+                    {% for cliente in cliente %}
+                    <tbody class="activo">
+                        <tr>
+                            <td>{{ cliente.codigo }}</td>
+                            <td>{{ cliente.nombre }}</td>
+                            <td>{{ cliente.direccion }}</td>
+                            <td>{{ cliente.rnc }}</td>
+                            <td>{{ cliente.telefono }}</td>
+                            <td>{{ cliente.correoElectronico }}</td>
+                            <td>{{ cliente.descuento }}</td>
+                            <td class="flex_icon">
+                                <a href="{% url 'editarcliente' cliente.id_cliente %}"><img src="{% static 'AlphaInventory/icons/boton_editar.png' %}" alt="Editar" class="editar_eliminar"></a>
+                                <a href="{% url 'eliminar_cliente' cliente.id_cliente %}"><img src="{% static 'AlphaInventory/icons/boton_eliminar.png' %}" alt="Eliminar" class="editar_eliminar"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </aside>
+        <div id="miModalENC" class="modal">
+            <div class="flex" id="flexENC">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h3 class="titulo_modal">CREADOR ENCARGADO DE COMPRAS</h3>
+                        <span class="close" id="closeENC">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/listadodeclientes/encargado_compras/" method="POST" class="formulario_modal">
+                            {% csrf_token %}
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo" placeholder="Ingrese el C&oacute;digo" autocomplete="off" required>
+                            </div>
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="encargadoCompra" placeholder="Ingrese el Nombre" autocomplete="off" required>
+                            </div>
+                            {% for usuario in usuario %}
+                            <div class="campo">
+                                <input type="hidden" name="usuario" value="{{ usuario.id_usuario }}" autocomplete="off">
+                            </div>
+                            {% endfor %}
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionEC()">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalENV" class="modal">
+            <div class="flex" id="flexENV">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h3 class="titulo_modal">CREADOR ENCARGADO DE VENTAS</h3>
+                        <span class="close" id="closeENV">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/listadodeclientes/encargado_ventas/" method="POST" class="formulario_modal">
+                            {% csrf_token%}
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo" placeholder="Ingrese el C&oacute;digo" autocomplete="off" required>
+                            </div>
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="encargadoVenta" placeholder="Ingrese el Nombre" autocomplete="off" required>
+                            </div>
+                            {% for usuario in usuario %}
+                            <div class="campo">
+                                <input type="hidden" name="usuario" value="{{ usuario.id_usuario }}" autocomplete="off">
+                            </div>
+                            {% endfor %}
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionEV()">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalEC" class="modal">
+            <div class="flex" id="flexEC">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h3 class="titulo_modal">ELIMINACI&Oacute;N DE CUENTA</h3>
+                        <span class="close" id="closeEC">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/eliminar_cuenta/" method="POST" class="formulario_modal">
+                            {% csrf_token %}
+                            <div class="campo_modal">
+                                <p class="parrafo_modal">¿Seguro que desea eliminar su cuenta?</p>
+                            </div>
+                            <div class="botones_modal">
+                                <a href="/listadodeclientes/" class="boton_modal">Atr&aacute;s</a>
+                                <button type="submit" class="boton_modal">Eliminar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <script src="{% static 'AlphaInventory/js/menuDesplegable.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/active.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/ventanaModal.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/ventanaModalEC.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/modalConfirmacion.js' %}"></script>
+</body>
+</html>

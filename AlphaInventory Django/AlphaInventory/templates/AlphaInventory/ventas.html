@@ -1,0 +1,470 @@
+{% load static %}
+<!DOCTYPE html> 
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PROCESOS | VENTAS</title>
+    <link rel="icon" href="{% static 'AlphaInventory/icons/ventas.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/procesos.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/ventanamodal.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/ventanamodalMostrar.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/mensaje.css' %}">
+</head>
+<body>
+    <script>
+        function confirmacion() {
+            var conf =  confirm("¿Estás seguro de que quieres realizar la compra?");
+
+            if(conf == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <div class="menu-boton">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="barra-lateral">
+        <header>
+            <div class="cerrar-boton">
+                <i class="fas fa-times"></i>
+            </div>
+            <a href="/inicio_inventario/" class="inicio">
+                <img src="{% static 'AlphaInventory/icons/logo.png' %}" class="logo" alt="Inicio">
+                <h1>Inventory</h1>
+            </a>
+            <div class="menu">
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="registros">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/registros.png' %}" alt="Registros"><span>REGISTROS</span><i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/registrodearticulos/" class="sub-elemento">ART&Iacute;CULOS</a>
+                        <a href="/registrodesuplidores/" class="sub-elemento">SUPLIDORES</a>
+                        <a href="/registrodeclientes/" class="sub-elemento">CLIENTES</a>
+                        <a href="#" class="sub-elemento" id="abrirENC">ENCARGADO DE COMPRAS</a>
+                        <a href="#" class="sub-elemento" id="abrirENV">ENCARGADO DE VENTAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="procesos">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/procesos.png' %}" alt="Procesos"><span>PROCESOS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/compras/" class="sub-elemento">COMPRAS</a>
+                        <a href="/ventas/" class="sub-elemento">VENTAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="movimientos">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/movimientos.png' %}" alt="Movimientos"><span>MOVIMIENTOS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/movimientosdiariocompras/" class="sub-elemento">DIARIOS / COMPRAS</a>
+                        <a href="/movimientosdiarioventas/" class="sub-elemento">DIARIOS / VENTAS</a>
+                        <a href="/movimientoporarticulocompras/" class="sub-elemento">ART&Iacute;CULO / COMPRAS</a>
+                        <a href="/movimientoporarticuloventas/" class="sub-elemento">ART&Iacute;CULO / VENTAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="listados">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/listados.png' %}" alt="Listados"><span>LISTADOS</span><i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/listadodearticulos/" class="sub-elemento">LISTADO DE ART&Iacute;CULOS</a>
+                        <a href="/listadodesuplidores/" class="sub-elemento">LISTADO DE SUPLIDORES</a>
+                        <a href="/listadodeclientes/" class="sub-elemento">LISTADO DE CLIENTES</a>
+                        <a href="/listadodecompras/" class="sub-elemento">LISTADO DE COMPRAS</a>
+                        <a href="/listadodeventas/" class="sub-elemento">LISTADO DE VENTAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="configuraciones">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/configuraciones.png' %}" alt="Configuraciones"><span>CONFIGURACIONES</span><i
+                        class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/perfil/" class="sub-elemento">PERFIL</a>
+                        <a href="/cambiarcontrasena/" class="sub-elemento">CAMBIAR CONTRASEÑA</a>
+                        <a href="/terminosycondiciones/" class="sub-elemento">T&Eacute;RMINOS & CONDICIONES</a>
+                        <a href="#" class="sub-elemento" id="abrirEC">ELIMINAR CUENTA</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a href="/cerrar_sesion/">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/cerrar-sesion.png' %}" alt="Cerrar-sesion"><span>CERRAR SESI&Oacute;N</span>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a href="{% url 'manualdeuso' %}">
+                        <img class="icon" src="{% static 'AlphaInventory/icons/ayuda.png' %}"
+                        alt="Ayuda"><span>AYUDA</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <main>
+        <aside>
+            <h2>Ventas</h2>
+            {% for mensaje in messages %}
+                <div class="mensajep">{{ mensaje }}</div>
+            {% endfor %}
+            <form method="POST" class="formulario">
+                {% csrf_token %}
+                <div class="contenedor_formulario">
+                    <h3>INFORMACI&Oacute;N DEL ART&Iacute;CULO</h3>
+                </div>
+                <input type="hidden" name="horaVenta" value="{{ horaVenta }}">
+                <div class="contenedor_formulario">
+                    <label for="cliente">Cliente:</label>
+                    <input type="text" name="cliente" autocomplete="off" required>
+                    <a href="#" id="abrirC"><img src="{% static 'AlphaInventory/icons/magnifier.png' %}" alt="buscar" class="icono"></a>
+                </div>
+                <div class="contenedor_formulario">
+                    <label for="encargadoVenta">Encargado de ventas:</label>
+                    <input type="text" name="encargadoVenta" autocomplete="off" required>
+                    <a href="#" id="abrirENVM"><img src="{% static 'AlphaInventory/icons/magnifier.png' %}" alt="buscar" class="icono"></a>
+                </div>
+                <div class="contenedor_formulario">
+                    <label>Buscador De Art&iacute;culo</label>
+                    <a href="#" id="abrirA"><img src="{% static 'AlphaInventory/icons/magnifier.png' %}" alt="buscar" class="icono"></a>
+                </div>
+                <table class="tabla">
+                    <tr>
+                        <th scope="col">C&oacute;digo</th>
+                        <th scope="col">Descripci&oacute;n</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Itbis %</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                    <tr class="activo">
+                        <td><input type="number" name="codigo" placeholder="0000000" class="nth" autocomplete="off" required>
+                        </td>
+                        <td><input type="text" name="descripcion" placeholder="descripci&oacute;n" class="nth" autocomplete="off" required></td>
+                        <td><input type="number" name="cantidad" placeholder="000" class="nth" autocomplete="off" required></td>
+                        <td>
+                            <select name="itbis" size="1" autocomplete="off" required>
+                                <option selected>Sel. impuesto</option>
+                                <option>18</option>
+                                <option>16</option>
+                                <option>0</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="precio" placeholder="00.00" class="nth" autocomplete="off" required></td>
+                    </tr>
+                    <tr class="activo">
+                        <td><input type="number" id="codigo_" name="codigo_" placeholder="0000000" class="nth" autocomplete="off"></td>
+                        <td><input type="text" id="descripcion_" name="descripcion_" placeholder="descripci&oacute;n" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="cantidad_" name="cantidad_" placeholder="000" class="nth" autocomplete="off"></td>
+                        <td>
+                            <select id="itbis_" name="itbis_" size="1" autocomplete="off">
+                                <option selected>Sel. impuesto</option>
+                                <option>18</option>
+                                <option>16</option>
+                                <option>0</option>
+                            </select>
+                        </td>
+                        <td><input type="number" id="precio_" name="precio_" placeholder="00.00" class="nth" autocomplete="off"></td>
+                    </tr>
+                    <tr class="activo">
+                        <td><input type="number" id="codigo__" name="codigo__" placeholder="0000000" class="nth" autocomplete="off"></td>
+                        <td><input type="text" id="descripcion__" name="descripcion__" placeholder="descripci&oacute;n" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="cantidad__" name="cantidad__" placeholder="000" class="nth" autocomplete="off"></td>
+                        <td>
+                            <select name="itbis__" id="itbis__" size="1" autocomplete="off">
+                                <option selected>Sel. impuesto</option>
+                                <option>18</option>
+                                <option>16</option>
+                                <option>0</option>
+                            </select>
+                        </td>
+                        <td><input type="number" id="precio__" name="precio__" placeholder="00.00" class="nth" autocomplete="off"></td>
+                    </tr>
+                    <tr class="activo">
+                        <td><input type="number" id="codigo___" name="codigo___" placeholder="0000000" class="nth" autocomplete="off"></td>
+                        <td><input type="text" id="descripcion___" name="descripcion___" placeholder="descripci&oacute;n" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="cantidad___" name="cantidad___" placeholder="000" class="nth" autocomplete="off"></td>
+                        <td>
+                            <select name="itbis___" id="itbis___" size="1" autocomplete="off">
+                                <option selected>Sel. impuesto</option>
+                                <option>18</option>
+                                <option>16</option>
+                                <option>0</option>
+                            </select>
+                        </td>
+                        <td><input type="number" id="precio___" name="precio___" placeholder="00.00" class="nth" autocomplete="off"></td>
+                    </tr>
+                    <tr class="activo">
+                        <td><input type="number" id="codigo____" name="codigo____" placeholder="0000000" class="nth" autocomplete="off"></td>
+                        <td><input type="text" id="descripcion____" name="descripcion____" placeholder="descripci&oacute;n" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="cantidad____" name="cantidad____" placeholder="000" class="nth" autocomplete="off"></td>
+                        <td>
+                            <select name="itbis____" id="itbis____" size="1" autocomplete="off">
+                                <option selected>Sel. impuesto</option>
+                                <option>18</option>
+                                <option>16</option>
+                                <option>0</option>
+                            </select>
+                        </td>
+                        <td><input type="number" id="precio____" name="precio____" placeholder="00.00" class="nth" autocomplete="off"></td>
+                    </tr>
+                    <tr class="activo">
+                        <td><input type="number" id="codigo_____" name="codigo_____" placeholder="0000000" class="nth" autocomplete="off"></td>
+                        <td><input type="text" id="descripcion_____" name="descripcion_____" placeholder="descripci&oacute;n" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="cantidad_____" name="cantidad_____" placeholder="000" class="nth" autocomplete="off">
+                        <td>
+                            <select name="itbis_____" id="itbis_____" size="1" autocomplete="off">
+                                <option selected>Sel. impuesto</option>
+                                <option>18</option>
+                                <option>16</option>
+                                <option>0</option>
+                            </select>
+                        </td>
+                        </td>
+                        <td><input type="number" id="precio_____" name="precio_____" placeholder="00.00" class="nth" autocomplete="off"></td>
+                    </tr>
+                    <tr class="activo">
+                        <td><input type="number" id="codigo______" name="codigo______" placeholder="0000000" class="nth" autocomplete="off"></td>
+                        <td><input type="text" id="descripcion______" name="descripcion______" placeholder="descripci&oacute;n" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="cantidad______" name="cantidad______" placeholder="000" class="nth" autocomplete="off">
+                        <td>
+                            <select name="itbis______" id="itbis______" size="1" autocomplete="off">
+                                <option selected>Sel. impuesto</option>
+                                <option>18</option>
+                                <option>16</option>
+                                <option>0</option>
+                            </select>
+                        </td>
+                        </td>
+                        <td><input type="number" id="precio______" name="precio______" placeholder="00.00" class="nth" autocomplete="off"></td>
+                    </tr>
+                    {% for usuario in usuario %}
+                        <input type="hidden" name="usuario" value="{{ usuario.id_usuario }}">
+                    {% endfor %}
+                </table>
+                <button type="submit" class="boton Save" value="Grabar" onclick="return confirmacion()">REALIZAR</button>
+            </form>
+        </aside>
+        <div id="miModalENC" class="modal">
+            <div class="flex" id="flexENC">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h3 class="titulo_modal">CREADOR ENCARGADO DE COMPRAS</h3>
+                        <span class="close" id="closeENC">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/ventas/encargado_compras/" method="POST" class="formulario_modal">
+                            {% csrf_token %}
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo" placeholder="Ingrese el C&oacute;digo" autocomplete="off" required>
+                            </div>
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="encargadoCompra" placeholder="Ingrese el Nombre" autocomplete="off" required>
+                            </div>
+                            {% for usuario in usuario %}
+                            <div class="campo">
+                                <input type="hidden" name="usuario" value="{{ usuario.id_usuario }}" autocomplete="off">
+                            </div>
+                            {% endfor %}
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionEC()">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalENV" class="modal">
+            <div class="flex" id="flexENV">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h3 class="titulo_modal">CREADOR ENCARGADO DE VENTAS</h3>
+                        <span class="close" id="closeENV">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/ventas/encargado_ventas/" method="POST" class="formulario_modal">
+                            {% csrf_token %}
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo" placeholder="Ingrese el C&oacute;digo" autocomplete="off" required>
+                            </div>
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="encargadoVenta" placeholder="Ingrese el Nombre" autocomplete="off" required>
+                            </div>
+                            {% for usuario in usuario %}
+                            <div class="campo">
+                                <input type="hidden" name="usuario" value="{{ usuario.id_usuario }}" autocomplete="off">
+                            </div>
+                            {% endfor %}
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionEV()">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalC" class="modal">
+            <div class="flex" id="flexC">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h3 class="titulo_modal_mostrar">CLIENTES</h3>
+                        <span class="close" id="closeC">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="contenedor_tabla_modal">
+                            <table class="tabla_modal">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">C&Oacute;DIGO</th>
+                                        <th scope="col">NOMBRE</th>
+                                        <th scope="col">C&Eacute;DULA</th>
+                                        <th scope="col">TEL&Eacute;FONO</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    {% for clientes in clientes %}
+                                    <td>{{ clientes.codigo }}</td>
+                                    <td>{{ clientes.nombre }}</td>
+                                    <td>{{ clientes.cedula }}</td>
+                                    <td>{{ clientes.telefono }}</td>
+                                    {% endfor %}
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalENVM" class="modal">
+            <div class="flex" id="flexENVM">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h3 class="titulo_modal_mostrar">ENCARGADO DE VENTAS</h3>
+                        <span class="close" id="closeENVM">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="contenedor_tabla_modal">
+                            <a href="#" id="abrirEdiEV">EEV</a>
+                            <table class="tabla_modal">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">C&Oacute;DIGO</th>
+                                        <th scope="col">NOMBRE</th>
+                                        <th scope="col">GESTI&Oacute;N</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    {% for encargadoVentas in encargadoVentas %}
+                                    <td>{{ encargadoVentas.codigo }}</td>
+                                    <td>{{ encargadoVentas.encargadoVenta }}</td>
+                                    <td>
+                                        <a href="{% url 'eliminar_encargadoVenta' encargadoVentas.id_encargadoVenta %}"><img src="{% static 'AlphaInventory/icons/boton_eliminar.png' %}" alt="Eliminar" class="eliminar"></a>
+                                        <!-- <a href="{% url 'editar_encargado_venta' encargadoVentas.id_encargadoventa %}">Editar</a> -->
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalEdiEV" class="modal">
+            <div class="flex" id="flexEdiEV">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h3 class="titulo_modal">EDITAR ENCARGADO DE VENTAS</h3>
+                        <span class="close" id="closeEdiEV">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            {% csrf_token %}
+                            {{ encargadoventaform }}
+                            <button type="submit" class="boton_modal">Editar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalA" class="modal">
+            <div class="flex" id="flexA">
+                <div class="contenido-modal contenido-modal_articulos">
+                    <div class="modal-header flex">
+                        <h3 class="titulo_modal_mostrar">ART&Iacute;CULOS</h3>
+                        <span class="close" id="closeA">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="contenedor_tabla_modal modal_articulos">
+                            <table class="tabla_modal tabla_modal_articulos">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">C&Oacute;DIGO</th>
+                                        <th scope="col">DESCRIPCION</th>
+                                        <th scope="col">CANTIDAD</th>
+                                        <th scope="col">ITBIS</th>
+                                        <th scope="col">PRECIO</th>
+                                        <th scope="col">GESTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for articulo in articulos %}
+                                    <tr>
+                                        <td>{{ articulo.codigo }}</td>
+                                        <td>{{ articulo.descripcion }}</td>
+                                        <td>{{ articulo.cantidad }}</td>
+                                        <td>{{ articulo.itbis }}%</td>
+                                        <td>{{ articulo.precio }}</td>
+                                        <td><button type="button" style="background-color:#009BEF;color:#fff;">Seleccionar</button></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalEC" class="modal">
+            <div class="flex" id="flexEC">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h3 class="titulo_modal">ELIMINACI&Oacute;N DE CUENTA</h3>
+                        <span class="close" id="closeEC">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/eliminar_cuenta/" method="POST" class="formulario_modal">
+                            {% csrf_token %}
+                            <div class="campo_modal">
+                                <p class="parrafo_modal">¿Seguro que desea eliminar su cuenta?</p>
+                            </div>
+                            <div class="botones_modal">
+                                <a href="/ventas/" class="boton_modal">Atr&aacute;s</a>
+                                <button type="submit" class="boton_modal">Eliminar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <script src="{% static 'AlphaInventory/js/menuDesplegable.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/active.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/ventanaModal.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/ventanaModalEditarEV.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/ventanaModalMostrarVentas.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/ventanaModalEC.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/modalConfirmacion.js' %}"></script>
+</body> 
+</html> 

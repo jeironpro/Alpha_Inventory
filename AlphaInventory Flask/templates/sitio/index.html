@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/panelControl.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modales.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <figure>
+                <img src="{{ url_for('static', filename='icons/logo.png') }}" alt="Logo" class="logo_inicio">
+            </figure>
+            <h1>Inventory</h1>
+        </div>
+    </header>
+    <main>
+        <h3 class="subtitulo">Inicio De Sesi&oacute;n</h3>
+        <div class="contenedor_formulario">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for mensaje in messages %}
+                        <div class="contenedor_notificacion contenedor_notificacion_index">
+                            <div class="cuerpo_notificacion">
+                                <div class="descripcion_notificacion">  
+                                    <div class="icono_notificacion">
+                                        <i class="fa-solid fa-info"></i>
+                                    </div>                  
+                                    {{ mensaje }} 
+                                </div> 
+                                <button class="boton_notificacion">
+                                    <i class="fa-solid fa-close"></i>
+                                </button>
+                            </div>
+                            <div class="barra_notificacion"></div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form method="post">
+                <div class="campo">
+                    <input type="text" id="correo_electronico"
+                    name="correo_electronico" placeholder="Correo Electronico" autocomplete="off" required>
+                    <span class="icono_correo" title="Correo Electronico"><i class="fa-regular fa-envelope"></i></span>
+                </div>
+                <div class="campo">
+                    <input type="password" id="contrasena" name="contrasena" minlength="8" placeholder="Contraseña" autocomplete="off" required>
+                    <span class="icono_contrasena" title="Contraseña"><i class="fa-solid fa-lock"></i></span>
+                    <span class="moscontra" title="Contraseña Oculta"><i class="fa-regular fa-eye-slash mostrar" data-target="contrasena"></i></span>
+                </div>
+                <div class="olvcon">
+                    <a href="#" class="enlace_olvcon" onclick="mostrarModal('modal_olvidaste_contrasena')">¿Olvidaste tu contraseña?</a>
+                </div>
+                <div class="boton_inicio">
+                    <button type="submit" class="boton" onclick="validar()">Entrar</button>
+                </div>
+                <div class="reg_usuario">
+                    <h4 class="subtitulo-">¿Eres un nuevo usuario?</h4><span><a href="/registro_usuario" class="enlace_reg">Registrarse</a></span>
+                </div>
+                <div class="enlaces-registro">
+                    <a href="{{ url_for('login_google') }}">
+                        <div class="enlace-google">
+                            <i class="fab fa-google"></i>
+                        </div>
+                    </a>
+                    <div class="enlace-facebook" onclick="facebookLogin()">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div id="contenedor_modal"></div>
+    <div id="background_modal" class="background_modal"></div>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/mostrar_contrasena.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modales.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/mensajes.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/confirmaciones.js') }}"></script>
+</body>
+</html>

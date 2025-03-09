@@ -1,0 +1,442 @@
+aside {
+    bottom: 0;
+    left: 20%;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 5%;
+}
+
+aside h2 {
+    background-color: #009BEF;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    width: 97%;
+}
+
+.formulario {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 40px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.formulario .campo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 5px 15px;
+    max-width: 224px;
+    padding: 5px 0;
+    width: 100%;
+}
+
+.formulario label {
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 3.2px;
+}
+
+.formulario input {
+    border: 2px solid #ADD8E6;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 400;
+    height: 32px;
+    padding-left: 8px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+select {
+    border: 2px solid #ADD8E6;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 32px;
+    padding-left: 8px;
+}
+
+.icono {
+    margin-left: 150px;
+    width: 15px;
+}
+
+.botones {
+    align-items: center;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    padding-top: 60px;
+    width: 100%;
+}
+
+.boton {
+    background-color: #189BEF;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    color: #000;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 120px;
+}
+
+@media screen and (max-width: 1230px) {
+    aside {
+        left: 22%;
+        position: fixed;
+    }
+
+    aside h2 {
+        padding: 7px;
+        width: 94%;
+    }
+
+    .formulario {
+        margin-left: 12%;
+    }
+
+    .formulario .campo {
+        padding: 5px 0;
+        width: 200px;
+    }
+
+    .formulario input {
+        font-size: 20px;
+        height: 33px;
+    }
+
+    select {
+        font-size: 16px;
+        height: 33px;
+    }
+
+    .icono {
+        height: 16px;
+        margin-left: 130px;
+        position: fixed;
+        width: 16px;
+    }
+
+    .botones {
+        margin-right: 13%;
+    }
+
+    .boton {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 1135px) {
+    .formulario {
+        margin-left: 10.5%;
+    }
+
+    .formulario .campo {
+        padding: 5px 0;
+        width: 190px;
+    }
+
+    .botones {
+        margin-right: 17%;
+    }
+}
+
+@media screen and (max-width: 1085px) {
+    aside {
+        left: 23%;
+    }
+
+    .formulario {
+        margin-left: 10%;
+    }
+
+    .formulario .campo {
+        width: 180px;
+    }
+
+    .formulario label {
+        font-size: 15px;
+    }
+
+    .formulario input {
+        font-size: 20px;
+        height: 33px;
+    }
+
+    .icono {
+        margin-left: 120px;
+    }
+
+    .botones {
+        margin-right: 21.5%;
+    }
+
+    .boton {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .formulario {
+        margin-left: 9%;
+    }
+
+    .formulario .campo {
+        width: 175px;
+    }
+
+    .botones {
+        margin-right: 21.5%;
+    }
+}
+
+@media screen and (max-width: 935px) {
+    aside {
+        left: 24%;
+    }
+
+    aside h2 {
+        font-size: 22px;
+        margin-left: 20px;
+        padding: 8px;
+    }
+
+    .formulario {
+        margin-left: 7%;
+    }
+
+    .formulario .campo {
+        width: 170px;
+    }
+
+    .formulario label {
+        font-size: 14px;
+    }
+
+    .formulario input {
+        height: 30px;
+    }
+
+    .botones {
+        margin-right: 16%;
+    }
+
+    .boton {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 885px) {
+    .formulario {
+        margin-left: 4%;
+    }
+
+    .botones {
+        margin-right: 8%;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    aside {
+        left: -4%;
+    }
+
+    aside h2 {
+        font-size: 20px;
+        margin-left: 11px;
+        padding: 9px;
+        width: 100%;
+    }
+
+    .formulario {
+        margin-left: 18.5%;
+        width: 80%;
+    }
+
+    .formulario .campo {
+        margin: 8px 10px;
+        width: 170px;
+    }
+
+    select {
+        height: 32px;
+    }
+
+    .icono {
+        height: 14px;
+        right: 66%;
+        width: 14px;
+    }
+
+    .boton {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 724px) {
+    aside h2 {
+        padding: 10px;
+    }
+
+    .formulario {
+        margin-left: 14%;
+        width: 85%;
+    }
+
+    .formulario input {
+        font-size: 1rem;
+        height: 1.8rem;
+    }
+
+    select {
+        font-size: 1rem;
+        height: 1.8rem;
+    }
+
+    .icono {
+        height: 12px;
+        width: 12px;
+    }
+
+    .botones {
+        margin-right: 11%;
+    }
+
+    .boton {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 644px) {
+    .formulario .campo {
+        margin-left: 6.5%;
+        width: 190px;
+    }
+
+    .icono {
+        right: 58%;
+    }
+
+    .boton {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .formulario {
+        margin-left: 14.5%;
+        width: 80%;
+    }
+
+    .formulario .campo {
+        margin-left: 6.5%;
+    }
+
+    .formulario input {
+        width: 180px;
+    }
+
+    select {
+        width: 180px;
+    }
+
+    .icono {
+        right: 55%;
+    }
+
+    .botones {
+        margin-right: 7%;
+    }
+}
+
+@media screen and (max-width: 552px) {
+    .formulario {
+        width: 100%;
+    }
+
+    .formulario .campo {
+        margin-left: 3%;
+    }
+
+    .botones {
+        margin-right: 20%;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    .barra-lateral {
+        overflow-x: hidden;
+    }
+
+    .formulario input {
+        width: 165px;
+    }
+
+    select {
+        font-size: 0.8rem;
+        width: 165px;
+    }
+
+    .botones {
+        margin-right: 24%;
+    }
+
+    .boton {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .formulario .campo {
+        margin-left: 1.5%;
+    }
+
+    .formulario input {
+        font-size: 0.8rem;
+        width: 170px;
+    }
+
+    select {
+        font-size: 0.8rem;
+        height: 1.8rem;
+        width: 170px;
+    }
+}
+
+@media screen and (max-width: 485px) {
+    .formulario {
+        margin-left: 6%;
+    }
+
+    .formulario .campo {
+        margin: 10px;
+    }
+
+    .formulario label {
+        font-size: 13px;
+        margin-left: 3px;
+    }
+
+    .icono {
+        right: 60%;
+    }
+
+    .botones {
+        margin-right: 7%;
+    }
+}

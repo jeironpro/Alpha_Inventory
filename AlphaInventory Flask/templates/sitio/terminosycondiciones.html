@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T&Eacute;RMINOS & CONDICIONES</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/panelControl.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/inicio.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modales.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
+</head>
+<body>
+    <header id="contenedor_menu">
+        <!-- SE GENERA DINAMICAMENTE DESDE JS -->
+    </header>
+    <main>
+        <h2>T&eacute;rminos & Condiciones</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for mensaje in messages %}
+                <div id="contenedor_notificacion" class="contenedor_notificacion contenedor_notificacion_inventario">
+                    <div class="cuerpo_notificacion">
+                        <div class="descripcion_notificacion">  
+                            <div class="icono_notificacion">
+                                <i class="fa-solid fa-info"></i>
+                            </div>           
+                            {{ mensaje }} 
+                        </div> 
+                        <button id="boton_notificacion" class="boton_notificacion">
+                            <i class="fa-solid fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="barra_notificacion"></div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="contenedor_parrafos">
+            <p>Este sistema es propiedad y est&aacute; siendo operado por Alpha Inventory SRL. Estos t&eacute;rminos y condiciones describen como debes usar nuestro sistema y servicios ofrecidos por nuestra empresa. Nuestra empresa ofrece a los usuarios, el uso adecuado y la protecci&oacute;n de sus datos. Al acceder o usar este sistema, usted acepta que ha le&iacute;do y entendido que est&aacute; sujeto a estos t&eacute;rminos.</p>
+            <p>Cuando recibimos un reclamo de garant&iacute;a v&aacute;lido de nuestro sistema, donde el mismo tenga un mal funcionamiento o mal uso de los datos que se recopilan de los usuarios, reparamos el defecto relevante o le reembolsamos su dinero en un lazo de tiempo razonable.</p>
+        </div>
+    </main>
+    <div id="contenedor_modal"></div>
+    <div id="background_modal" class="background_modal"></div>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modales.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/mensajes.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/confirmaciones.js') }}"></script>
+</body>
+</html>

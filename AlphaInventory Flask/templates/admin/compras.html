@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>COMPRAS</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/panelControl.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/procesos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modales.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
+</head>
+<body>
+    <header id="contenedor_menu">
+        <!-- SE GENERA DINAMICAMENTE DESDE JS -->
+    </header>
+    <main>
+        <div class="contenedor_principal">
+            <h2>Compras</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for mensaje in messages %}
+                    <div id="contenedor_notificacion" class="contenedor_notificacion contenedor_notificacion_inventario">
+                        <div class="cuerpo_notificacion">
+                            <div class="descripcion_notificacion">  
+                                <div class="icono_notificacion">
+                                    <i class="fa-solid fa-info"></i>
+                                </div>           
+                                {{ mensaje }} 
+                            </div> 
+                            <button id="boton_notificacion" class="boton_notificacion">
+                                <i class="fa-solid fa-close"></i>
+                            </button>
+                        </div>
+                        <div class="barra_notificacion"></div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form class="formulario_proceso" action="{{ url_for('compras_bd') }}" method="post" enctype="multipart/form-data">
+                <div class="contenedor_datos">
+                    <h3>DATOS DE LA COMPRA</h3>
+                    <div class="datos">
+                        <div id="contenedor_suplidor" class="campo buscador">
+                            <input type="text" id="suplidor" name="suplidor" placeholder="Suplidor" autocomplete="off" required>
+                            <a href="#" class="enlace_buscador" onclick="mostrarModal('modal_suplidores')">
+                                <i class="fa-solid fa-search"></i>
+                            </a>
+                        </div>
+                        <div class="campo buscador">
+                            <input type="text" id="encargado_compras" name="encargado_compras" placeholder="Encargado de compras" autocomplete="off" required>
+                            <a href="#" class="enlace_buscador" onclick="mostrarModal('modal_encargados_compras')">
+                                <i class="fa-solid fa-search"></i>
+                            </a>
+                        </div>
+                        <button type="button" class="campo buscador_articulo">
+                            <a href="#" class="enlace_buscador_articulo" onclick="mostrarModal('modal_articulos_compras')">
+                                Buscador de Art&iacute;culos
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <input type="hidden" id="numero_articulos_compra" name="numero_articulos_compra" value="1">
+                <div class="contenedor_tabla">
+                    <table id="tabla_articulos" class="tabla">
+                        <thead>
+                            <tr>
+                                <th scope="col">C&oacute;digo</th>
+                                <th scope="col">Descripci&oacute;n</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Itbis %</th>
+                                <th scope="col">Costo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="number" id="codigo_1" name="codigo_1" placeholder="0000000" class="input_compra" autocomplete="off" required>
+                                </td>
+                                <td>
+                                    <input type="text" id="descripcion_1" name="descripcion_1" placeholder="descripci&oacute;n" class="input_compra" autocomplete="off" required>
+                                </td>
+                                <td>
+                                    <input type="number" id="cantidad_1" name="cantidad_1" placeholder="000" class="input_compra" autocomplete="off" required>
+                                </td>
+                                <td>
+                                    <select name="itbis_1" id="itbis_1" size="1" autocomplete="off" required>
+                                        <option selected>Sel. impuesto</option>
+                                        <option>18</option>
+                                        <option>16</option>
+                                        <option>0</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="number" id="costo_1" name="costo_1" placeholder="00.00" class="input_compra" autocomplete="off" required>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    <div class="controles_paginacion">
+                                        <button id="anterior" class="boton_paginacion anterior">&lt;</button>
+                                        <span class="informacion_paginacion"><span class="pagina_actual">1</span> / <span class="paginas_totales">1</span></span>
+                                        <button id="siguiente" class="boton_paginacion siguiente">&gt;</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="botones">
+                    <button type="button" class="boton" onclick="agregarFila('compra')">Agregar</button>
+                    <button type="submit" class="boton" onclick="return confirmacion_compras()">REALIZAR</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div id="contenedor_modal"></div>
+    <div id="background_modal" class="background_modal"></div>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modales.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/seleccionar_articulo.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/agregar_articulo.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/seleccionar_s_ec_c_ev.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/confirmaciones.js') }}"></script>
+</body>
+</html> 

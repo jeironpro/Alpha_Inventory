@@ -1,0 +1,9 @@
+{% autoescape off %}
+
+Bienvenido a Alpha Inventory - Inicio de sesion!!!
+Hola {{ name }}!!!
+Por favor confirma tu correo electronico haciendo click en el siguiente enlace.
+
+Enlace de confirmacion: http://{{ domain }}{% url 'activador' uidb64=uid token=token %}
+
+{% endautoescape %}

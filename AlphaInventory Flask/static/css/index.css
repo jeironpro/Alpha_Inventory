@@ -1,0 +1,332 @@
+/* GLOBAL */
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* CUERPO */
+body {
+    align-items: center;
+    background-color: #EAEBEF;
+    display: flex;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+/* CABECERA LOGO-TITULO */
+header {
+    width: 100%;
+}
+
+.logo {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo_inicio {
+    height: 100%;
+    width: 450px;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: 900;
+    text-align: center;
+    width: 100%;
+}
+
+/* PRINCIPAL */
+main {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.subtitulo {
+    background-color: #009BEF;
+    border-radius: 5px 5px 0 0;
+    color: #FFF;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 600px;
+}
+
+.mensaje_index {
+    align-items: center;
+    background-color: #DC3545;
+    color: #FFF;
+    display: flex;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    padding: 6px;
+}
+
+.contenedor_formulario form {
+    align-items: center;
+    background-color: #F5F5F5;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    padding-top: 20px;
+    width: 600px;
+}
+
+.formulario_registro_usuario form {
+    padding-top: 10px;
+}
+
+.formulario_recuperar_contrasena .indicaciones_cta {
+    padding: 30px 0;
+}
+
+.formulario_recuperar_contrasena .indicaciones_cta p {
+    padding: 5px 0;
+}
+
+.contenedor_formulario form .campo {
+    display: flex;
+    flex-flow: column;
+    margin: 30px 0;
+    position: relative;
+}
+
+.formulario_registro_usuario form .campo {
+    margin: 10px 0;
+    position: relative;
+}
+
+.formulario_recuperar_contrasena .campo {
+    margin: 30px 0;
+    position: relative;
+}
+
+.formulario_registro_usuario form .icono_label, .formulario_recuperar_contrasena form .icono_label {
+    cursor: pointer;
+    font-size: 18px;
+    left: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.contenedor_formulario form input {
+    border: 2px solid #009BEF;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    height: 38px;
+    padding-left: 30px;
+    width: 400px;
+}
+
+.contenedor_formulario form input::placeholder {
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.icono_correo, .icono_contrasena {
+    cursor: pointer;
+    left: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icono_correo {
+    color: #EA4335;
+    font-size: 18px;
+}
+
+.icono_contrasena {
+    color: #E5BE01;
+    font-size: 17px;
+}
+
+.contenedor_formulario form .moscontra {
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.formulario_registro_usuario form .moscontra, .formulario_recuperar_contrasena form .moscontra {
+    transform: translateY(-50%);
+}
+
+.contenedor_formulario form input:is(:focus-visible, :valid) {
+    outline-color: #000;
+}
+
+.fa-signature {
+    color: #009BEF;
+}
+
+.fa-location-dot {
+    color: #CB0010;
+}
+
+.fa-phone {
+    color: #3ADE56;
+}
+
+.fa-envelope {
+    color: #EA4335;
+}
+
+.fa-key {
+    color: #E5BE01;
+}
+
+.olvcon {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    margin-left: 100px;
+    margin-top: -20px;
+}
+
+.enlace_olvcon {
+    color: #009BEF;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.enlace_olvcon:hover {
+    color: #2567A8;
+}
+
+.contenedor_formulario form .boton_inicio {
+    margin-top: 40px;
+}
+
+.formulario_registro_usuario form .botones, .formulario_recuperar_contrasena form .botones {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.contenedor_formulario form .boton {
+    background-color: #009BEF;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    height: 42px;
+    text-transform: uppercase;
+    width: 120px;
+}
+
+.formulario_registro_usuario form .boton, .formulario_recuperar_contrasena form .boton {
+    margin: 0px 20px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.contenedor_formulario form .boton:hover {
+    background-color: #2567A8;
+    color: #FFF;
+    transition: all .4s ease-out;
+    width: 120px;
+}
+
+.reg_usuario {
+    align-items: center;
+    display: flex;
+    margin-top: 15px;
+    padding: 20px 0 0 0;
+}
+
+.subtitulo- {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 2px;
+}
+
+.enlace_reg {
+    color: #009BEF;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 10px;
+    padding: 0px 5px;
+    text-decoration: none;
+}
+
+.enlace_reg:hover{
+    color: #2567A8;
+}
+
+.enlaces-registro {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.enlaces-registro a {
+    text-decoration: none;
+}
+
+.enlaces-registro .enlace-google, .enlaces-registro .enlace-facebook {
+    align-items: center;
+    border-radius: 10px;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    padding: 12px;
+    position: relative;
+    width: 160px;
+}
+
+.enlaces-registro .enlace-google {
+    border: 2px solid #EA4335;
+}
+
+.enlaces-registro .enlace-facebook {
+    border: 2px solid #1778F2;
+}
+
+.enlaces-registro .enlace-google i {
+    color: #EA4335;
+    font-size: 24px;
+}
+
+.enlaces-registro .enlace-facebook i {
+    color: #1778F2;
+    font-size: 24px;
+}
+
+.enlaces-registro .enlace-google:hover {
+    background: conic-gradient(from -45deg, #EA4335 110deg, #4285F4 90deg 180deg, #34A853 180deg 270deg, #FBBC05 270deg) 73% 55%/150% 150% no-repeat;
+    border: none;
+}
+
+.enlaces-registro .enlace-facebook:hover {
+    background-color: #1778F2;
+    border: none;
+}
+
+.enlaces-registro .enlace-google:hover i, .enlaces-registro .enlace-facebook:hover i {
+    color: #FFF;
+}

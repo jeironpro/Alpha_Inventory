@@ -1,0 +1,236 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #EAEBEF;
+    overflow: hidden;
+    width: 100%;
+}
+
+header {
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    background-color: #009BEF;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 8px 0 0 20px;
+}
+
+.campo {
+    margin-top: 0px;
+    position: relative;
+}
+
+.contenedor_nomape {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+}
+
+input {
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #000;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    flex-flow: column;
+    height: 35px;
+    justify-content: center;
+    margin: 20px 0 0 0;
+    padding: 10px;
+    text-align: center;
+    outline: 2px solid #009BEF;
+    width: 100%;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 700;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translate(26px, 7px);
+    transform-origin: left;
+    transition: transform 0.25s;
+}
+
+input:focus-visible~label,
+input:valid~label {
+    color: #000;
+    font-size: 20px;
+    margin-top: -10px;
+    transform: translate(0, -20px) scale(0.8);
+}
+
+input:is(:focus-visible, :valid) {
+    outline-color: #000;
+}
+
+.campo .nomape {
+    margin: 0 5px 0 0;
+    width: 98%;
+}
+
+.icono_label {
+    cursor: pointer;
+    font-size: 14px;
+    left: 5px;
+    position: relative;
+    top: -28px;
+}
+
+.fa-signature {
+    color: #009BEF;
+}
+
+.fa-location-dot {
+    color: #cb0010;
+}
+
+.fa-phone {
+    color: #3ade56;
+}
+
+.fa-envelope {
+    color: #ea4335;
+}
+
+.fa-key {
+    color: #e5be01;
+}
+
+.moscontra {
+    cursor: pointer;
+    font-size: 15px;
+    position: absolute;
+    right: 3%;
+    top: 14%;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+}
+
+.boton {
+    background-color: #009BEF;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    color: #000;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0px 20px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 120px;
+}
+
+.boton:hover {
+    border: 1px solid #000;
+    background-color: #0029FF;
+    color: #FFF;
+    transition: all 1s ease-out;
+    width: 120px;
+}
+
+@media screen and (max-width: 1024px) {
+    h1 {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    input {
+        height: 32px;
+        font-size: 14px;
+        margin: 23px 0 0 0;
+    }
+
+    label {
+        font-size: 15px;
+        transform: translate(26px, 5px);
+    }
+
+    input:focus-visible~label,
+    input:valid~label {
+        font-size: 19px;
+        transform: translate(0, -16px) scale(0.8);
+    }
+
+    .icono_label {
+        font-size: 13px;
+    }
+
+    .moscontra {
+        font-size: 14px;
+    }
+
+    .boton {
+        font-size: 15px;
+        height: 38px;
+        width: 110px;
+    }
+
+    .boton:hover {
+        width: 110px;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    header {
+        padding: 20px 0 20px 0;
+    }
+}
+
+@media  screen and (max-width: 500px) {
+    body, header, main {
+        overflow: hidden;
+    }
+
+    .contenedor_nomape {
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+    }
+
+    h1 {
+        max-width: 500px;
+    }
+
+    .nomape {
+        margin-top: 10px;
+    }
+
+    .campo_ {
+        margin-top: -10px;
+    }
+
+    input {
+        width: 98%;
+    }
+}

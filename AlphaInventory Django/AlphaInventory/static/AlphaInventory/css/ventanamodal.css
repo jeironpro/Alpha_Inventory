@@ -1,0 +1,416 @@
+.flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.452);
+    backdrop-filter: blur(3px);
+}
+
+.contenido-modal {
+    position: relative;
+    background-color: #EAEBEF;
+    margin: auto;
+    width: 45%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+    animation-name: modal;
+    animation-duration: 1s;
+}
+
+@keyframes modal {
+    from {
+        top: -330px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #000;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: #7f8c8d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 8px 16px;
+    background-color: #009BEF;
+}
+
+.modal-body {
+    padding: 20px 16px;
+}
+
+.titulo_modal {
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.formulario_modal {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    gap: 10px;
+}
+
+.campo_modal {
+    padding: 0 10px;
+}
+
+.campo_modal .input_modal {
+    border-radius: 5px;
+    border: transparent;
+    display: flex;
+    font-size: 14px;
+    font-weight: 600;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    text-align: center;
+    outline: 2px solid #009BEF;
+    width: 320px;
+}
+
+.input_modal::placeholder {
+    padding: 2px;
+    text-transform: uppercase;
+}
+
+.parrafo_modal {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.botones_modal {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 30px;
+}
+
+.boton_modal {
+    background-color: #189BEF;
+    border: 2px solid #fff;
+    height: 34px;
+    color: #000;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    padding: 4px 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 130px;
+}
+
+@media screen and (max-width: 1224px) {
+    .titulo_modal {
+        font-size: 20px;
+    }
+
+    .contenido-modal {
+        width: 55%;
+    }
+
+    .parrafo_modal {
+        font-size: 17px;
+    }
+
+    .campo_modal .input_modal {
+        width: 300px;
+    }
+
+    .icono_email_modalOC {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1124px) {
+    .titulo_modal {
+        font-size: 19px;
+    }
+
+    .contenido-modal {
+        width: 55%;
+    }
+
+    .parrafo_modal {
+        font-size: 16px;
+    }
+
+    .campo_modal .input_modal {
+        font-size: 14px;
+        height: 32px;
+        width: 300px;
+    }
+
+    .boton_modal {
+        font-size: 15px;
+        height: 30px;
+        width: 110px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .titulo_modal {
+        font-size: 18px;
+    }
+
+    .parrafo_modal {
+        font-size: 15px;
+    }
+
+    .contenido-modal {
+        width: 55%;
+    }
+
+    .campo_modal .input_modal {
+        font-size: 14px;
+        height: 32px;
+        width: 290px;
+    }
+
+    .campo_modal .input_modal::placeholder {
+        font-size: 12px;
+    }
+
+    .boton_modal {
+        font-size: 14px;
+        height: 30px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 924px) {
+    .titulo_modal {
+        font-size: 18px;
+    }
+
+    .contenido-modal {
+        width: 55%;
+    }
+
+    .parrafo_modal {
+        font-size: 15px;
+    }
+    
+    .campo_modal .input_modal {
+        font-size: 14px;
+        height: 30px;
+        width: 280px;
+    }
+
+    .boton_modal {
+        font-size: 15px;
+        height: 30px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    .titulo_modal {
+        font-size: 17px;
+    }
+
+    .contenido-modal {
+        width: 60%;
+    }
+    
+    .parrafo_modal {
+        font-size: 15px;
+    }
+
+    .campo_modal .input_modal {
+        font-size: 14px;
+        height: 28px;
+        width: 270px;
+    }
+
+    .boton_modal {
+        font-size: 14px;
+        height: 30px;
+        width: 95px;
+    }
+}
+
+@media screen and (max-width: 724px) {
+    .titulo_modal {
+        font-size: 16px;
+    }
+
+    .contenido-modal {
+        width: 60%;
+    }
+
+    .parrafo_modal {
+        font-size: 15px;
+    }
+
+    .campo_modal .input_modal {
+        width: 250px;
+    }
+    .campo_modal .input_modal::placeholder {
+        font-size: 11px;
+    }
+
+    .boton_modal {
+        font-size: 13px;
+        width: 90px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .titulo_modal {
+        font-size: 15px;
+    }
+
+    .contenido-modal {
+        width: 60%;
+    }
+
+    .parrafo_modal {
+        font-size: 13px;
+    }
+
+    .campo_modal .input_modal {
+        height: 26px;
+        width: 220px;
+    }
+
+    .campo_modal .input_modal::placeholder {
+        font-size: 10px;
+    }
+
+    .boton_modal {
+        font-size: 13px;
+        height: 28px;
+        width: 85px;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    .titulo_modal {
+        font-size: 14px;
+    }
+
+    .contenido-modal {
+        width: 60%;
+    }
+    
+    .parrafo_modal {
+        font-size: 12px;
+    }
+
+    .campo_modal .input_modal {
+        height: 26px;
+        width: 210px;
+    }
+
+    .campo_modal .input_modal::placeholder {
+        font-size: 10px;
+    }
+
+    .boton_modal {
+        font-size: 12px;
+        height: 28px;
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .titulo_modal {
+        font-size: 12px;
+    }
+
+    .close {
+        font-size: 20px;
+    }
+
+    .contenido-modal {
+        width: 60%;
+    }
+
+    .parrafo_modal {
+        font-size: 12px;
+    }
+
+    .campo_modal .input_modal {
+        font-size: 12px;
+        width: 200px;
+    }
+
+    .boton_modal {
+        font-size: 11px;
+        height: 28px;
+        width: 75px;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    .titulo_modal {
+        font-size: 11px;
+    }
+
+    .close {
+        font-size: 18px;
+    }
+
+    .contenido-modal {
+        width: 70%;
+    }
+
+    .parrafo_modal {
+        font-size: 9px;
+    }
+
+    .campo_modal .input_modal {
+        font-size: 10px;
+        width: 190px;
+    }
+
+    .campo_modal .input_modal::placeholder {
+        font-size: 8px;
+    }
+
+    .boton_modal {
+        font-size: 11px;
+        height: 26px;
+        width: 70px;
+    }
+}

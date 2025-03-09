@@ -1,0 +1,107 @@
+aside {
+    bottom: 0;
+    left: 20%;
+    position: fixed;
+    right: 0;
+    text-transform: uppercase; 
+    top: 5%;
+}
+
+aside h2 {
+    background-color: #009BEF;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 97%;
+}
+
+.parrafos {
+    align-content: center;
+    align-items: center;
+    background: #fff;
+    display: flex;
+    flex-flow: column;
+    line-height: 1.35;
+    padding: 20px;
+    width: 97%;
+}
+
+.parrafos p {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 20px;
+    text-align: justify;
+    width: 100%;
+}
+
+@media screen and (max-width: 1224px) {
+    aside {
+        left: 24%;
+    }
+
+    .parrafos p {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 924px) {
+    aside {
+        left: 28%;
+    }
+
+    .parrafos {
+        line-height: 1.25;
+        padding: 14px;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    aside {
+        left: 0%;
+        width: 100%;
+    }
+
+    aside h2 {
+        font-size: 22px;
+        width: 100%;
+    }
+
+    .parrafos {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 724px) {
+    aside h2 {
+        font-size: 19px;
+    }
+
+    .parrafos p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    aside h2 {
+        font-size: 16px;
+    }
+
+    .parrafos p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    .parrafos p {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .parrafos p {
+        font-size: 13px;
+    }
+}

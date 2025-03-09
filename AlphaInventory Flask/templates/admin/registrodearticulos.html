@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO DE ART&Iacute;CULOS</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/panelControl.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registros.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modales.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
+</head>
+<body>
+    <header id="contenedor_menu">
+        <!-- SE GENERA DINAMICAMENTE DESDE JS -->
+    </header>
+    <main>
+        <h2>Registro de art&iacute;culos</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for mensaje in messages %}
+                <div id="contenedor_notificacion" class="contenedor_notificacion contenedor_notificacion_inventario">
+                    <div class="cuerpo_notificacion">
+                        <div class="descripcion_notificacion">  
+                            <div class="icono_notificacion">
+                                <i class="fa-solid fa-info"></i>
+                            </div>           
+                            {{ mensaje }} 
+                        </div> 
+                        <button id="boton_notificacion" class="boton_notificacion">
+                            <i class="fa-solid fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="barra_notificacion"></div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="contenedor_formulario">
+            <form action="{{ url_for('registro_articulos_bd') }}" method="post" enctype="multipart/form-data" class="formulario_registro">
+                <div class="contenedor_campos">
+                    <div class="campo">
+                        <label for="codigo">C&oacute;digo</label>
+                        <input type="number" id="codigo" name="codigo" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="direccion">Ubicaci&oacute;n</label>
+                        <input type="text" id="direccion" name="direccion" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="costo">Costo</label>
+                        <input type="number" id="costo" name="costo" autocomplete="off" required>
+                    </div>
+                    <div class="campo buscador">
+                        <label for="marca">Marca</label>
+                        <input type="text" id="marca" name="marca" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="contenedor_campos">
+                    <div class="campo">
+                        <label for="descripcion">Descripci&oacute;n</label>
+                        <input type="text" id="descripcion" name="descripcion" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="referencia">Referencia</label>
+                        <input type="text" id="referencia" name="referencia" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="precio">Precio</label>
+                        <input type="number" id="precio" name="precio" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="contenedor_campos">
+                    <div class="campo">
+                        <label for="talla">Talla</label>
+                        <input type="text" id="talla" name="talla" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="itbis">Itbis</label>
+                        <select name="itbis" id="itbis" size="1" required>
+                            <option selected>Sel. impuesto</option>
+                            <option>18</option>
+                            <option>16</option>
+                            <option>0</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="medida">Unidad de Medida</label>
+                        <select name="medida" id="medida" size="1" autocomplete="off" required>
+                            <option selected>Sel. unidad de medida</option>
+                            <option>docenas</option>
+                            <option>unidades</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="botones">
+                    <button type="reset" class="boton">Limpiar</button>
+                    <button type="submit" class="boton">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div id="contenedor_modal"></div>
+    <div id="background_modal" class="background_modal"></div>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modales.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/mensajes.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/confirmaciones.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/listados_movimientos.js') }}"></script>
+</body>
+</html>

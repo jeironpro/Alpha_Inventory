@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VENTANAS MODALES</title>
+</head>
+<body>
+    <main>
+        <!-- MODAL OLVIDASTE TU CONTRASEÑA -->
+         <div id="modal_olvidaste_contrasena" class="modal">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">OLVIDASTE TU CONTRASEÑA</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_olvidaste_contrasena')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <p class="parrafo_modal">¿Tienes Problemas Para Iniciar Sesi&oacute;n?</p>
+                <p class="parrafo_modal">Sigue Las Instrucciones &Darr;</p>
+                <div class="contenedor_formulario_modal">
+                    <form action="/olvidastetucontrasena" method="post" enctype="multipart/form-data" id="formulario_modal" class="formulario_modal" onsubmit="enviar_correo()">
+                        <div class="campo_modal">
+                            <input type="email" id="correo_recuperacion" name="correo_recuperacion" class="input_modal" placeholder="Ingrese su correo Electr&oacute;nico" autocomplete="off" required>
+                            <span class="icono_label_modal" title="Correo Electronico"><i class="fa-regular fa-envelope"></i></span>
+                        </div>
+                        <div class="botones_modal">
+                            <a href="/" role="button" class="boton_modal">Atr&aacute;s</a>
+                            <input type="submit" id="boton_modal" class="boton_modal" value="Enviar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>
+        <!-- MODAL REGISTRAR MARCAS -->
+        <div id="modal_registrar_marcas" class="modal">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">REGISTRAR MARCA</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_registrar_marcas')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <div class="contenedor_formulario_modal">
+                    <form action="/crear_marca" method="post" enctype="multipart/form-data" class="formulario_modal">
+                        <div class="campo_modal">
+                            <input type="number" class="input_modal" name="codigo_marca" id="codigo_marca" placeholder="Ingrese el codigo" autocomplete="off">
+                            <i class="fas fa-hashtag icono_label_modal" title="Codigo"></i>
+                        </div>
+                        <div class="campo_modal">
+                            <input type="text" class="input_modal" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el nombre" autocomplete="off">
+                            <i class="fas fa-user icono_label_modal" title="Nombre"></i>
+                        </div>
+                        <div class="botones_modal">
+                            <button type="reset" class="boton_modal">Limpiar</button>
+                            <button type="submit" class="boton_modal" onclick="return confirmacion_registrar_marca()">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>
+        <!-- MODAL REGISTRAR ENCARGADO DE COMPRAS -->
+        <div id="modal_registrar_encargado_compras" class="modal">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">REGISTRAR ENCARGADO DE COMPRAS</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_registrar_encargado_compras')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <div class="contenedor_formulario_modal">
+                    <form action="/crear_encargado_compras" method="post" enctype="multipart/form-data" class="formulario_modal">
+                        <div class="campo_modal">
+                            <input type="text" class="input_modal" name="codigo_encargado_compras" id="codigo_encargado_compras" placeholder="Ingrese el C&oacute;digo" autocomplete="off">
+                            <i class="fas fa-hashtag icono_label_modal" title="Codigo"></i>
+                        </div>
+                        <div class="campo_modal">
+                            <input type="text" class="input_modal" name="nombre_encargado_compras" id="nombre_encargado_compras" placeholder="Ingrese el Nombre" autocomplete="off">
+                            <i class="fas fa-user icono_label_modal" title="Nombre"></i>
+                        </div>
+                        <div class="botones_modal">
+                            <button type="reset" class="boton_modal">Limpiar</button>
+                            <button type="submit" class="boton_modal" onclick="return confirmacion_registrar_encargado_compras()">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>
+        <!-- MODAL REGISTRAR ENCARGADO DE VENTAS -->
+        <div id="modal_registrar_encargado_ventas" class="modal">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">REGISTRAR ENCARGADO DE VENTAS</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_registrar_encargado_ventas')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <div class="contenedor_formulario_modal">
+                    <form action="/crear_encargado_ventas" method="post" enctype="multipart/form-data" class="formulario_modal">
+                        <div class="campo_modal">
+                            <input type="text" class="input_modal" name="codigo_encargado_ventas" id="codigo_encargado_ventas" placeholder="Ingrese el C&oacute;digo" autocomplete="off">
+                            <i class="fas fa-hashtag icono_label_modal" title="Codigo"></i>
+                        </div>
+                        <div class="campo_modal">
+                            <input type="text" class="input_modal" name="nombre_encargado_ventas" id="nombre_encargado_ventas" placeholder="Ingrese el Nombre" autocomplete="off">
+                            <i class="fas fa-user icono_label_modal" title="Nombre"></i>
+                        </div>
+                        <div class="botones_modal">
+                            <button type="reset" class="boton_modal">Limpiar</button>
+                            <button type="submit" class="boton_modal" onclick="return confirmacion_registrar_encargado_ventas()">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>
+        <!-- MODAL EDITAR MARCA -->
+        <div id="modal_editar_marca" class="modal">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">EDITAR MARCA</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_editar_marca')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <form method="post" enctype="multipart/form-data"
+                id="formulario_editar_marca_modal" class="formulario_modal">
+                    <div class="campo_modal">
+                        <input type="text" class="input_modal" name="codigo_marca_editar" id="codigo_marca_editar" autocomplete="off">
+                        <i class="fas fa-hashtag icono_label_modal" title="Codigo"></i>
+                    </div>
+                    <div class="campo_modal">
+                        <input type="text" class="input_modal" name="nombre_marca_editar" id="nombre_marca_editar" autocomplete="off">
+                        <i class="fas fa-user icono_label_modal" title="Nombre"></i>
+                    </div>
+                    <div class="botones_modal">
+                        <button type="submit" class="boton_modal"">Guardar</button>
+                    </div>
+                </form>
+            </div>
+         </div>
+         <!-- MODAL EDITAR ENCARGADO DE COMPRAS -->
+        <div id="modal_editar_encargado_compras" class="modal">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">EDITAR ENCARGADO DE COMPRAS</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_editar_encargado_compras')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <form method="post" enctype="multipart/form-data" id="formulario_editar_encargado_compras_modal" class="formulario_modal">
+                    <div class="campo_modal">
+                        <input type="text" class="input_modal" name="codigo_encargado_compras_editar" id="codigo_encargado_compras_editar" autocomplete="off">
+                        <i class="fas fa-hashtag icono_label_modal" title="Codigo"></i>
+                    </div>
+                    <div class="campo_modal">
+                        <input type="text" class="input_modal" name="nombre_encargado_compras_editar" id="nombre_encargado_compras_editar" autocomplete="off">
+                        <i class="fas fa-user icono_label_modal" title="Nombre"></i>
+                    </div>
+                    <div class="botones_modal">
+                        <button type="submit" class="boton_modal"">Guardar</button>
+                    </div>
+                </form>
+            </div>
+         </div>
+         <!-- MODAL EDITAR ENCARGADO DE VENTAS -->
+        <div id="modal_editar_encargado_ventas" class="modal">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">EDITAR ENCARGADO DE VENTAS</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_editar_encargado_ventas')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <form method="post" enctype="multipart/form-data" id="formulario_editar_encargado_ventas_modal" class="formulario_modal">
+                    <div class="campo_modal">
+                        <input type="text" class="input_modal" name="codigo_encargado_ventas_editar" id="codigo_encargado_ventas_editar" autocomplete="off">
+                        <i class="fas fa-hashtag icono_label_modal" title="Codigo"></i>
+                    </div>
+                    <div class="campo_modal">
+                        <input type="text" class="input_modal" name="nombre_encargado_ventas_editar" id="nombre_encargado_ventas_editar" autocomplete="off">
+                        <i class="fas fa-user icono_label_modal" title="Nombre"></i>
+                    </div>
+                    <div class="botones_modal">
+                        <button type="submit" class="boton_modal"">Guardar</button>
+                    </div>
+                </form>
+            </div>
+         </div>
+        <!-- MODAL MOSTRAR SUPLIDOR -->
+        <div id="modal_suplidores" class="modal modal_tabla">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">SUPLIDORES</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_suplidores')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <div class="contenedor_tabla_modal">
+                    <table class="tabla_modal">
+                        <thead>
+                            <tr>
+                                <th scope="col">C&Oacute;DIGO</th>
+                                <th scope="col">NOMBRE</th>
+                                <th scope="col">RNC</th>
+                                <th scope="col">TEL&Eacute;FONO</th>
+                                <th scope="col">GESTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for suplidor in suplidores %}
+                            <tr>
+                                <td>{{ suplidor[1] }}</td>
+                                <td>{{ suplidor[2] }}</td>
+                                <td>{{ suplidor[8] }}</td>
+                                <td>{{ suplidor[5] }}</td>
+                                <td>
+                                    <button type="button" class="seleccionar" data-nombre="{{ suplidor[2] }}" onclick="seleccionarSuplidor(this)"><i class="fas fa-check-circle"></i></button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    <div class="controles_paginacion">
+                                        <button id="anterior" class="boton_paginacion anterior">&lt;</button>
+                                        <span class="informacion_paginacion"><span class="pagina_actual">1</span> / <span class="paginas_totales">1</span></span>
+                                        <button id="siguiente" class="boton_paginacion siguiente">&gt;</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- MDOAL MOSTRAR ENCARGADOS DE COMPRAS -->
+        <div id="modal_encargados_compras" class="modal modal_tabla">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">ENCARGADO DE COMPRAS</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_encargados_compras')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <div class="contenedor_tabla_modal">
+                    <table class="tabla_modal">
+                        <thead>
+                            <tr>
+                                <th scope="col">C&Oacute;DIGO</th>
+                                <th scope="col">NOMBRE</th>
+                                <th scope="col">GESTI&Oacute;N</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for encargado_compras in encargados_compras %}
+                            <tr>
+                                <td>{{ encargado_compras[1] }}</td>
+                                <td>{{ encargado_compras[2] }}</td>
+                                <td><button type="button" class="seleccionar" data-nombre="{{ encargado_compras[2] }}" onclick="seleccionarEncargadoCompras(this)"><i class="fas fa-check-circle"></i></button></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <div class="controles_paginacion">
+                                        <button id="anterior" class="boton_paginacion anterior">&lt;</button>
+                                        <span class="informacion_paginacion"><span class="pagina_actual">1</span> / <span class="paginas_totales">1</span></span>
+                                        <button id="siguiente" class="boton_paginacion siguiente">&gt;</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL MOSTRAR ARTICULOS COMPRAS -->
+        <div id="modal_articulos_compras" class="modal modal_tabla">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">ART&Iacute;CULOS</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_articulos_compras')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <div class="contenedor_tabla_modal">
+                    <table class="tabla_modal">
+                        <thead>
+                            <tr>
+                                <th scope="col">C&Oacute;DIGO</th>
+                                <th scope="col">DESCRIPCION</th>
+                                <th scope="col">CANTIDAD</th>
+                                <th scope="col">ITBIS</th>
+                                <th scope="col">COSTO</th>
+                                <th scope="col">GESTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for articulo in articulos %}
+                            <tr>
+                                <td>{{ articulo[1] }}</td>
+                                <td>{{ articulo[2] }}</td>
+                                <td><input type="number" class="cantidad_articulos" value=""></td>
+                                <td>{{ articulo[9] }}%</td>
+                                <td>{{ articulo[7] }}</td>
+                                <td><button type="button" class="seleccionar" data-codigo="{{ articulo[1] }}" data-descripcion="{{ articulo[2] }}" data-cantidad="{{ articulo[10] }}" data-itbis="{{ articulo[9] }}" data-costo="{{ articulo[7] }}" onclick="seleccionarArticulo(this, 'compras')"><i class="fas fa-check-circle"></i></button></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="controles_paginacion">
+                                        <button id="anterior" class="boton_paginacion anterior">&lt;</button>
+                                        <span class="informacion_paginacion"><span class="pagina_actual">1</span> / <span class="paginas_totales">1</span></span>
+                                        <button id="siguiente" class="boton_paginacion siguiente">&gt;</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL MOSTRAR CLIENTES -->
+        <div id="modal_clientes" class="modal modal_tabla">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">CLIENTES</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_clientes')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <div class="contenedor_tabla_modal">
+                    <table class="tabla_modal">
+                        <thead>
+                            <tr>
+                                <th scope="col">C&Oacute;DIGO</th>
+                                <th scope="col">NOMBRE</th>
+                                <th scope="col">C&Eacute;DULA</th>
+                                <th scope="col">TEL&Eacute;FONO</th>
+                                <th scope="col">GESTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cliente in clientes %}
+                            <tr class="activo">
+                                <td>{{ cliente[1] }}</td>
+                                <td>{{ cliente[2] }}</td>
+                                <td>{{ cliente[6] }}</td>
+                                <td>{{ cliente[5] }}</td>
+                                <td>
+                                    <button type="button" class="seleccionar" data-nombre="{{ cliente[2] }}" onclick="seleccionarCliente(this)"><i class="fas fa-check-circle"></i></button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    <div class="controles_paginacion">
+                                        <button id="anterior" class="boton_paginacion anterior">&lt;</button>
+                                        <span class="informacion_paginacion"><span class="pagina_actual">1</span> / <span class="paginas_totales">1</span></span>
+                                        <button id="siguiente" class="boton_paginacion siguiente">&gt;</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL MOSTRAR ENCARGADOS DE VENTAS -->
+        <div id="modal_encargados_ventas" class="modal modal_tabla">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">ENCARGADO DE VENTAS</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_encargados_ventas')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <div class="contenedor_tabla_modal">
+                    <table class="tabla_modal">
+                        <thead>
+                            <tr>
+                                <th scope="col">C&Oacute;DIGO</th>
+                                <th scope="col">NOMBRE</th>
+                                <th scope="col">GESTI&Oacute;N</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for encargado_ventas in encargados_ventas %}
+                            <tr class="activo">
+                                <td>{{ encargado_ventas[1] }}</td>
+                                <td>{{ encargado_ventas[2] }}</td>
+                                <td><button type="button" class="seleccionar" data-nombre="{{ encargado_ventas[2] }}" onclick="seleccionarEncargadoVentas(this)"><i class="fas fa-check-circle"></i></button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <div class="controles_paginacion">
+                                        <button id="anterior" class="boton_paginacion anterior">&lt;</button>
+                                        <span class="informacion_paginacion"><span class="pagina_actual">1</span> / <span class="paginas_totales">1</span></span>
+                                        <button id="siguiente" class="boton_paginacion siguiente">&gt;</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL MOSTRAR ARTICULOS VENTAS -->
+        <div id="modal_articulos_ventas" class="modal modal_tabla">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">ART&Iacute;CULOS</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_articulos_ventas')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <div class="contenedor_tabla_modal">
+                    <table class="tabla_modal">
+                        <thead>
+                            <tr>
+                                <th scope="col">C&Oacute;DIGO</th>
+                                <th scope="col">DESCRIPCION</th>
+                                <th scope="col">CANTIDAD</th>
+                                <th scope="col">ITBIS</th>
+                                <th scope="col">PRECIO</th>
+                                <th scope="col">GESTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for articulo in articulos %}
+                            <tr>
+                                <td>{{ articulo[1] }}</td>
+                                <td>{{ articulo[2] }}</td>
+                                <td><input type="number" class="cantidad_articulos" value="{{ articulo[10] }}"></td>
+                                <td>{{ articulo[9] }}%</td>
+                                <td>{{ articulo[7] }}</td>
+                                <td><button type="button" class="seleccionar seleccionar_venta" data-codigo="{{ articulo[1] }}" data-descripcion="{{ articulo[2] }}" data-cantidad="{{ articulo[10] }}" data-itbis="{{ articulo[9] }}" data-costo="{{ articulo[8] }}" onclick="seleccionarArticulo(this, 'ventas')"><i class="fas fa-check-circle"></i></button></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="controles_paginacion">
+                                        <button id="anterior" class="boton_paginacion anterior">&lt;</button>
+                                        <span class="informacion_paginacion"><span class="pagina_actual">1</span> / <span class="paginas_totales">1</span></span>
+                                        <button id="siguiente" class="boton_paginacion siguiente">&gt;</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL ELIMINAR CUENTA -->
+        <div id="modal_eliminar_cuenta" class="modal">
+            <div class="cabecera_modal">
+                <h2 class="titulo_modal">ELIMINAR CUENTA</h2>
+                <span class="cerrar_modal" onclick="cerrarModal('modal_eliminar_cuenta')">&times;</span>
+            </div>
+            <div class="cuerpo_modal">
+                <div class="contenedor_formulario_modal">
+                    <form action="/eliminar_cuenta" method="post" enctype="multipart/form-data" class="formulario_modal">
+                        <div class="campo_modal">
+                            <p class="parrafo_modal">¿Seguro que desea eliminar su cuenta?</p>
+                        </div>
+                        <div class="botones_modal">
+                            <button type="submit" class="boton_modal" id="id_registro_usuario" name="id_registro_usuario">Eliminar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>
+    </main>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/modales.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/confirmaciones.js') }}"></script>
+</body>
+</html>

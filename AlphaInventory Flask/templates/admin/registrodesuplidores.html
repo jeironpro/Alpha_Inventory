@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO DE SUPLIDORES</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/panelControl.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registros.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modales.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
+</head>
+<body>
+    <header id="contenedor_menu">
+        <!-- SE GENERA DINAMICAMENTE DESDE JS -->
+    </header>
+    <main>
+        <h2>Registro de suplidores</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for mensaje in messages %}
+                <div id="contenedor_notificacion" class="contenedor_notificacion contenedor_notificacion_inventario">
+                    <div class="cuerpo_notificacion">
+                        <div class="descripcion_notificacion">  
+                            <div class="icono_notificacion">
+                                <i class="fa-solid fa-info"></i>
+                            </div>           
+                            {{ mensaje }} 
+                        </div> 
+                        <button id="boton_notificacion" class="boton_notificacion">
+                            <i class="fa-solid fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="barra_notificacion"></div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="contenedor_formulario">
+            <form action="{{ url_for('registro_suplidores_bd') }}" method="post" enctype="multipart/form-data" class="formulario_registro">
+                <div class="contenedor_campos">
+                    <div class="campo">
+                        <label for="codigo">C&oacute;digo</label>
+                        <input type="number" id="codigo" name="codigo" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="telefono">Tel&eacute;fono</label>
+                        <input type="tel" id="telefono" name="telefono" maxlength="10" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="limite_credito">L&iacute;mite de Cr&eacute;dito</label>
+                        <input type="text" id="limite_credito" name="limite_credito" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="contenedor_campos">
+                    <div class="campo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="ciudad">Ciudad</label>
+                        <select name="ciudad" id="ciudad" size="1" autocomplete="off" required>
+                            <option selected>Sel. una provincia</option>
+                            <option>Azua</option>
+                            <option>Bahoruco</option>
+                            <option>Barahona</option>
+                            <option>Dajab&oacute;n</option>
+                            <option>Duarte</option>
+                            <option>El Seibo</option>
+                            <option>El&acute;as Piña</option>
+                            <option>Espaillat</option>
+                            <option>Hato Mayor</option>
+                            <option>Hermanas Mirabal</option>
+                            <option>Independencia</option>
+                            <option>La Altagracia</option>
+                            <option>La Romana</option>
+                            <option>La Vega</option>
+                            <option>Mar&iacute;a Trinidad S&aacute;nchez</option>
+                            <option>Monseñor Nouel</option>
+                            <option>Monte Cristi</option>
+                            <option>Monte Plata</option>
+                            <option>Perdanales</option>
+                            <option>Peravia</option>
+                            <option>Puerto Plata</option>
+                            <option>Saman&aacute;</option>
+                            <option>San Cristobal</option>
+                            <option>San Jos&eacute; De Ocoa</option>
+                            <option>San Juan</option>
+                            <option>San Pedro De Macor&iacute;s</option>
+                            <option>S&aacute;nchez Ramirez</option>
+                            <option>Santiago</option>
+                            <option>Santiago Rodr&iacute;guez</option>
+                            <option>Santo Domingo</option>
+                            <option>Valverde</option>
+                            <option>Distrito Nacional</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="condiciones">Condiciones</label>
+                        <input type="text" id="condiciones" name="condiciones" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="contenedor_campos">
+                    <div class="campo">
+                        <label for="direccion">Direcci&oacute;n</label>
+                        <input type="text" id="direccion" name="direccion" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="rnc">RNC</label>
+                        <input type="text" id="rnc" name="rnc" maxlength="9" autocomplete="off" required>
+                    </div>
+                    <div class="campo">
+                        <label for="descuento">Descuento</label>
+                        <input type="text" id="descuento" name="descuento" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="botones">
+                    <button type="reset" class="boton">Limpiar</button>
+                    <button type="submit" class="boton">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div id="contenedor_modal"></div>
+    <div id="background_modal" class="background_modal"></div>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modales.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/mensajes.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/confirmaciones.js') }}"></script>
+</body>
+</html>

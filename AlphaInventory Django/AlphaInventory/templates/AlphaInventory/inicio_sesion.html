@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO</title>
+    <link rel="icon" href="{% static 'AlphaInventory/icons/iniciar_sesion.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/ventanamodal.css' %}">
+    <link rel="stylesheet" href="{% static 'AlphaInventory/css/mensaje.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <figure>
+                <img src="{% static 'AlphaInventory/icons/logo.png' %}" alt="Logo" class="logo_inicio">
+            </figure>
+            <h1>Inventory</h1>
+        </div>
+    </header>
+    <main>
+        <h3 class="subtitulo">Inicio De Sesi&oacute;n</h3>
+        {% for mensaje in messages %}
+            <div class="mensaje">{{ mensaje }}</div>
+        {% endfor %}
+        <div class="contenedor_formulario">
+            <form method="POST" action="{% url 'inicio_sesion' %}">
+                {% csrf_token %}
+                <div class="campo">
+                    <input type="text" name="correoElectronico" id="correoElectronico" autocomplete="off" required>
+                    <span class="icono_correo" title="Correo Electronico"><i class="fa-regular fa-envelope"></i></span>
+                    <label for="correoElectronico">CORREO ELECTR&Oacute;NICO</label>
+                </div>
+                <div class="campo">
+                    <input class="input_password" type="text" name="contrasena" id="contrasena" autocomplete="off" required>
+                    <span class="moscontra" title="Contraseña Oculta"><i class="fa-regular fa-eye-slash mostrar"></i></span>
+                    <span class="icono_contrasena" title="Contraseña"><i class="fa-solid fa-key"></i></span>
+                    <label for="contrasena">CONTRASEÑA</label>
+                </div>
+                <div class="olvcon">
+                    <a href="#" id="abrirOC" class="enlace_olvcon">¿Olvidaste tu contraseña?</a>
+                </div>
+                <div class="boton_ini">
+                    <button type="submit" class="boton_inicio" onclick="validar()">Entrar</button>
+                </div>
+                <div class="reg_usuario">
+                    <h4 class="subtitulo-">¿Eres un nuevo usuario?</h4><span><a href="/registro_usuario/" class="enlace_reg">Registrarse</a></span>
+                </div>
+                <div class="enlaces_reg_iconos">
+                    <div class="enlaces_reg">
+                        <i class="fab fa-google"></i>
+                        <span class="texto_icono">
+                            <a href="https://accounts.google.com" target="_blank" class="enlace_iconos">
+                                Continuar Con Google
+                           </a>
+                        </span>
+                        <span class="icono_background"></span>
+                    </div>
+                    <div class="enlaces_reg">
+                        <i class="fab fa-facebook"></i>
+                        <span class="texto_icono">
+                            <a href="https://www.facebook.com" target="_blank" class="enlace_iconos">
+                                Continuar Con Facebook 
+                            </a>
+                        </span>
+                        <span class="icono_background"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="miModalOC" class="modal">
+            <div class="flex" id="flexOC">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h3 class="titulo_modal">OLVIDASTE TU CONTRASEÑA</h3>
+                        <span class="close" id="closeOC">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <p class="parrafo_modal">¿TIENES PROBLEMAS PARA INICIAR SESI&Oacute;N?</p>
+                        <form action="/registro_usuario/olvidastetucontrasena/bd" method="post" enctype="multipart/form-data" id="formulario_modal" class="formulario_modal"> 
+                            <div class="campo_modal">
+                                <input type="email" id="correo" name="correo" class="input_modal" placeholder="Ingrese su correo Electr&oacute;nico" autocomplete="off" required>
+                            </div>
+                            <div class="botones_modal">
+                                <a href="/" role="button" class="boton_modal">Atr&aacute;s</a>
+                                <input type="submit" id="boton_modal" class="boton_modal" value="Enviar">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/25da21ab57.js" crossorigin="anonymous"></script>
+    <script src="{% static 'AlphaInventory/js/mostrarContrasena.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/ventanaModalOC.js' %}"></script>
+    <script src="{% static 'AlphaInventory/js/enviar.js' %}"></script>
+</body>
+</html>
